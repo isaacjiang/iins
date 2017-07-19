@@ -5,13 +5,26 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { HttpModule } from '@angular/http';
 import { iinsApp } from './app.component';
+
 import { BasePage } from '../views/base/base';
+import { CustomerPage } from '../views/customer/customer'
+import { InsurancePage } from '../views/insurance/insurance'
+import { ApplicationsPage } from '../views/applications/applications'
+import { SearchPage } from '../views/search/search'
+import { SettingsPage } from '../views/settings/settings'
+
+
 import { FileSelectDirective } from 'ng2-file-upload';
 
 @NgModule({
   declarations: [
     iinsApp,
     BasePage,
+    CustomerPage,
+    InsurancePage,
+    ApplicationsPage,
+    SearchPage,
+    SettingsPage,
     FileSelectDirective
   ],
   imports: [
@@ -22,7 +35,12 @@ import { FileSelectDirective } from 'ng2-file-upload';
   bootstrap: [IonicApp],
   entryComponents: [
     iinsApp,
-    BasePage
+    BasePage,
+    CustomerPage,
+    InsurancePage,
+    ApplicationsPage,
+    SearchPage,
+    SettingsPage
   ],
   providers: [
     StatusBar,

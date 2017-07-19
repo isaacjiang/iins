@@ -1,19 +1,8 @@
 
-<ion-content >
-  <ion-grid *ngIf="activePage=='devicesList'">
-    welcome
-
-    Single
-    <input type="file" ng2FileSelect [uploader]="uploader" />
-
-    <button type="button" class="btn btn-success btn-xs"
-            (click)="uploader.uploadAll()" >
-      <span class="glyphicon glyphicon-upload"></span> Upload
-    </button>
-  </ion-grid>
-
-
-
-
-
-</ion-content>
+<ion-tabs color ='primary' tabsPlacement="top" tabsLayout="icon-start">
+  <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="ios-globe-outline"></ion-tab>
+  <ion-tab [root]="tab2Root" tabTitle="Customer" tabIcon="ios-contacts"></ion-tab>
+  <ion-tab [root]="tab3Root" tabTitle="Quote" tabIcon="pricetags"></ion-tab>
+  <ion-tab [root]="tab4Root" tabTitle="Application" tabIcon="paper"></ion-tab>
+  <ion-tab [root]="tab5Root" tabTitle="About" tabIcon="settings"></ion-tab>
+</ion-tabs>

@@ -1,0 +1,13 @@
+::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  display: none;
+}
+
+ion-grid {
+  height: 100%;
+}
+
+ion-loading ion-spinner{
+  width: 90px;
+  height: 90px;
+}
