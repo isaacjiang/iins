@@ -3,7 +3,7 @@
  */
 import {Component} from '@angular/core';
 import {Http} from '@angular/http'
-import {NavController, LoadingController, App,Events} from 'ionic-angular';
+import {NavController, LoadingController, App,Events,MenuController} from 'ionic-angular';
 import 'rxjs';
 import {FileUploader } from 'ng2-file-upload';
 
@@ -16,11 +16,12 @@ export class SearchPage {
   public data;
   public auth;
   public activePage;
-  public uploader:FileUploader = new FileUploader({url: '/rest/files/upload'});
+  // public uploader:FileUploader = new FileUploader({url: '/rest/files/upload'});
 
 
   constructor(
               public nav: NavController,
+              public menu:MenuController,
               public http:Http,
               public loadingCtrl: LoadingController,
               public events:Events,
@@ -39,12 +40,13 @@ export class SearchPage {
       duration:0
     };
     this.activePage='devicesList'
-    console.log('fileupload:',this.uploader)
+   // console.log('fileupload:',this.uploader)
 
   }
 
   ionViewWillEnter()
   {
+    console.log(this.menu)
     // this.viewCtrl.showBackButton(false);
     this.app.setTitle('Intelligent Insurance')
     this.updateUserStatus()
@@ -61,17 +63,14 @@ export class SearchPage {
   updateUserStatus() {
     let root = this
     root.http.get('/rest/admin/userstatus').map(response => response.json())
-      .subscribe((auth) => {
-        root.auth = auth;
-        // root.auth ={sid: "adc4e10e-3da2-4351-8f4d-2e9f4857cb97",username:'Providius',
-        //   status:{is_authenticated:true,is_active:true,is_anonymous:false}
-        // }
-       console.log('auth',root.auth)
-
+      .subscribe((authentication) => {
+        root.authentication = authentication;
+        // console.log('authentication',root.authentication)
       })
-
   }
 
-
+  doSomething(){
+    console.log( this.menu)
+  }
 
 }

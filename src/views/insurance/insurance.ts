@@ -39,7 +39,7 @@ export class InsurancePage {
       duration:0
     };
     this.activePage='devicesList'
-    console.log('fileupload:',this.uploader)
+   // console.log('fileupload:',this.uploader)
 
   }
 
@@ -61,17 +61,11 @@ export class InsurancePage {
   updateUserStatus() {
     let root = this
     root.http.get('/rest/admin/userstatus').map(response => response.json())
-      .subscribe((auth) => {
-        root.auth = auth;
-        // root.auth ={sid: "adc4e10e-3da2-4351-8f4d-2e9f4857cb97",username:'Providius',
-        //   status:{is_authenticated:true,is_active:true,is_anonymous:false}
-        // }
-       console.log('auth',root.auth)
-
+      .subscribe((authentication) => {
+        root.authentication = authentication;
+        // console.log('authentication',root.authentication)
       })
-
   }
-
 
 
 }
