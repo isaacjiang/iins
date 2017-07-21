@@ -6,26 +6,18 @@ import {Http} from '@angular/http'
 import {NavController,App,Events,Tabs} from 'ionic-angular';
 import 'rxjs';
 
-import { CustomerPage } from '../customer/customer'
-import { InsurancePage } from '../insurance/insurance'
-import { ApplicationsPage } from '../applications/applications'
-import { SearchPage } from '../search/search'
-import { SettingsPage } from '../settings/settings'
+
 
 
 @Component({
   templateUrl: 'base.html'
 })
 export class BasePage {
-  public tab1Root = SearchPage;
-  public tab2Root = CustomerPage ;
-  public tab3Root = InsurancePage;
-  public tab4Root = ApplicationsPage;
-  public tab5Root = SettingsPage;
+
   public authentication = {};
   public attributes ={};
 
-  @ViewChild('navTabs') tabRef: Tabs;
+  // @ViewChild('navTabs') tabRef: Tabs;
   constructor(
               public nav: NavController,
               public http:Http,
@@ -37,7 +29,7 @@ export class BasePage {
 
   ionViewWillEnter()
   {
-    console.log(this.tabRef)
+    // console.log(this.tabRef)
     this.app.setTitle('Intelligent Insurance')
   }
 

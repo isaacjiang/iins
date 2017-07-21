@@ -1,28 +1,6 @@
-nvrt-header {
-  ion-row{
-    height: 60px;
-    padding-top: 6px;
-  }
-  ion-badge{
-    width: 80px;
-  }
-  .tx{
-    background-color: #FA8072;
-  }
-
-  .rx{
-    background-color: #1E90FF;
-  }
-  ion-item:hover {
-    background-color:#4c4c4c !important;
-  }
-
-  ion-icon{
-    font-size: 36px !important;
-  }
-
+iins-header {
   button{
-    height: 45px !important;
+    height: 40px !important;
   }
 
 }

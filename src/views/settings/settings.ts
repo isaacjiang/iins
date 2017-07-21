@@ -14,7 +14,7 @@ import {FileUploader } from 'ng2-file-upload';
 export class SettingsPage {
   public params;
   public data;
-  public auth;
+  public authentication;
   public activePage;
   public uploader:FileUploader = new FileUploader({url: '/rest/files/upload'});
 

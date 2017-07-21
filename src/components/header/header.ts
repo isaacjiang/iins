@@ -4,11 +4,15 @@
 import {Component, Input} from '@angular/core';
 
 import {Events,MenuController} from "ionic-angular";
-
+// import { CustomerPage } from '../customer/customer'
+// import { InsurancePage } from '../insurance/insurance'
+// import { ApplicationsPage } from '../applications/applications'
+import { SearchPage } from '../../components/search/search'
+// import { SettingsPage } from '../settings/settings'
 
 
 @Component({
-    selector: 'nvrt-header',
+    selector: 'iins-header',
     templateUrl: 'header.html'
 })
 
@@ -30,48 +34,7 @@ export class Header {
   eventsHandles(root){
     root.events.unsubscribe('getPortsOverviewStatus_header')
     root.events.unsubscribe('getPortBandwidth_header')
-    root.events.subscribe('getPortsOverviewStatus_header', (d,p) => {
-      // console.log(d,p)
-      if(d.Data){
-        var dataset =[]
-        for(let port of  Object.keys(d.Data)){
-          var pt =d.Data[port];
-          pt['port'] = port;
-          pt['portAlias']='P'+port.replace('Ethernet','').replace("Eth", "");
-          dataset.push(pt)
-        }
-        dataset.sort(function (a, b) {
-          return parseInt((a.port).toString().replace("Ethernet", "").replace("Eth1/", "")) - parseInt((b.port).toString().replace("Ethernet", "").replace("Eth1/", ""))
-        });
 
-        root.data=dataset
-        root.params=p
-
-        if (p.deviceType.toUpperCase()=='IPX'){
-          root.logo = "assets/icon/logo-evertz.png"
-        }
-        else if (p.deviceType.toUpperCase()=='ARISTA'){
-          root.logo = "assets/icon/logo-arista.png"
-        }
-        else if (p.deviceType.toUpperCase()=='MELLANOX'){
-          root.logo = "assets/icon/logo-mellanox.png"
-        }
-        else if (p.deviceType.toUpperCase()=='CISCO'){
-          root.logo = "assets/icon/logo-cisco.png"
-        }
-        else if (p.deviceType.toUpperCase()=='JUNIPER'){
-          root.logo = "assets/icon/logo-juniper.png"
-        }
-        else if (p.deviceType.toUpperCase()=='HUAWEI'){
-          root.logo = "assets/icon/logo-huawei.png"
-        }
-        else {
-          root.logo = "assets/icon/logo-evertz.png"
-        }
-
-      }
-
-    });
     root.events.subscribe('getPortBandwidth_header',(d,p)=> {
      // console.log('getPortBandwidth_header',d,p);
       if(d){
@@ -86,6 +49,7 @@ export class Header {
 
   openPage = function (pageName) {
     this.events.publish('activepage',{active:pageName})
+    console.log(pageName)
   }
   openPort =function (port)
   {

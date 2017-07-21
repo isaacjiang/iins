@@ -10,9 +10,10 @@ import { BasePage } from '../views/base/base';
 import { CustomerPage } from '../views/customer/customer'
 import { InsurancePage } from '../views/insurance/insurance'
 import { ApplicationsPage } from '../views/applications/applications'
-import { SearchPage } from '../views/search/search'
 import { SettingsPage } from '../views/settings/settings'
 
+import { Header } from '../components/header/header'
+import { SearchPage } from '../components/search/search'
 
 import { FileSelectDirective } from 'ng2-file-upload';
 
@@ -25,7 +26,8 @@ import { FileSelectDirective } from 'ng2-file-upload';
     ApplicationsPage,
     SearchPage,
     SettingsPage,
-    FileSelectDirective
+    FileSelectDirective,
+    Header
   ],
   imports: [
     BrowserModule,
@@ -40,7 +42,8 @@ import { FileSelectDirective } from 'ng2-file-upload';
     InsurancePage,
     ApplicationsPage,
     SearchPage,
-    SettingsPage
+    SettingsPage,
+    Header
   ],
   providers: [
     StatusBar,

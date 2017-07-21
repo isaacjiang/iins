@@ -9,12 +9,13 @@ import {FileUploader } from 'ng2-file-upload';
 
 
 @Component({
+  selector: 'iins-search',
   templateUrl: '../search/search.html'
 })
 export class SearchPage {
   public params;
   public data;
-  public auth;
+  public authentication;
   public activePage;
   // public uploader:FileUploader = new FileUploader({url: '/rest/files/upload'});
 

@@ -1,56 +1,40 @@
-<ion-menu id="portsmenu" [content]="portsmenu" side="right" *ngIf="params">
-  <ion-content>
-    <ion-toolbar color="primary">
-      <ion-title>{{ params.ip }}</ion-title>
-    </ion-toolbar>
-    <ion-list>
 
-      <ion-item *ngFor="let item of data" (click)="openPort(item)" >
-      {{item.portAlias}}
-      <ion-icon [name]="item.Status =='Up' ? 'arrow-round-up' : 'arrow-round-down'"
-      [color]="item.Status =='Up' ? 'active' : 'danger'" item-right></ion-icon>
-      <ion-badge item-right class="rx">{{item.Rx}}</ion-badge>
-      <ion-badge item-right class="tx">{{item.Tx}}</ion-badge>
-      </ion-item>
-    </ion-list>
-  </ion-content>
-</ion-menu>
 
-<ion-row #portsmenu>
+<ion-navbar color="primary">
+<ion-row>
+  <ion-buttons ionc-start margin-left="40px">
+    <button ion-button icon-only enabled (click)="openPage('search')" float-left>
+      <ion-icon name="ios-globe-outline"></ion-icon>
+    </button>
+  </ion-buttons>
+
+  <ion-buttons ionc-start >
+    <button ion-button icon-only enabled (click)="openPage('customer')">
+      <!--<ion-icon> <img src="assets/icon/ic_insert_chart_white_24px.svg"/></ion-icon>-->
+      <ion-icon name="ios-contacts"></ion-icon>
+    </button>
+  </ion-buttons>
+
+  <ion-buttons ionc-start >
+    <button ion-button icon-only enabled (click)="openPage('insurance')">
+      <ion-icon name="pricetags"></ion-icon>
+    </button>
+  </ion-buttons>
+  <ion-buttons ionc-start>
+    <button ion-button icon-only (click)="openPage('application')">
+      <ion-icon name="paper"></ion-icon>
+    </button>
+  </ion-buttons>
+  <ion-buttons ionc-start >
+    <button ion-button icon-only (click)="openPage('settings')">
+      <ion-icon name="settings"></ion-icon>
+    </button>
+  </ion-buttons>
 
   <ion-title>
-    <img *ngIf="logo" [src]=logo width="169px" style="display:inline-block" height="40px"/>
-    <span *ngIf="title" style="margin-left: ">{{ title.ip }}    P{{title.port}}</span>
+  <!--<img *ngIf="logo" [src]=logo width="169px" style="display:inline-block" height="40px"/>-->
+  <span  style="margin-left:20px">Intelligent Insurance </span>
   </ion-title>
-
-  <ion-buttons end >
-    <button ion-button icon-only (click)="openPage('devicesList')">
-      <ion-icon name="ios-list-box"></ion-icon>
-    </button>
-  </ion-buttons>
-
-  <ion-buttons end >
-    <button ion-button icon-only enabled (click)="openPage('deviceInfo')">
-      <!--<ion-icon> <img src="assets/icon/ic_insert_chart_white_24px.svg"/></ion-icon>-->
-      <ion-icon name="md-stats"></ion-icon>
-    </button>
-  </ion-buttons>
-
-  <ion-buttons end>
-    <button ion-button icon-only (click)="toggleMenu('portsmenu')">
-      <ion-icon name="md-pulse"></ion-icon>
-    </button>
-  </ion-buttons>
-  <ion-buttons end>
-    <button ion-button icon-only (click)="openPage('routing')">
-      <ion-icon name="md-grid"></ion-icon>
-    </button>
-  </ion-buttons>
-  <!--<ion-buttons end margin-right="20px">-->
-    <!--<button ion-button icon-only (click)="openPage('setting')">-->
-      <!--<ion-icon name="settings"></ion-icon>-->
-    <!--</button>-->
-  <!--</ion-buttons>-->
 </ion-row>
-
+</ion-navbar>
 

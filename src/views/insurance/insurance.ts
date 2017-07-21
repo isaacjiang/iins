@@ -17,7 +17,7 @@ export class InsurancePage {
   public auth;
   public activePage;
   public uploader:FileUploader = new FileUploader({url: '/rest/files/upload'});
-
+  public authentication;
 
   constructor(
               public nav: NavController,
