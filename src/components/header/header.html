@@ -2,39 +2,40 @@
 
 <ion-navbar color="primary">
 <ion-row>
-  <ion-buttons ionc-start margin-left="40px">
+
+  <ion-title>
+    <!--<img *ngIf="logo" [src]=logo width="169px" style="display:inline-block" height="40px"/>-->
+    <span  style="margin-left:20px">Intelligent Insurance </span>
+  </ion-title>
+  <ion-buttons >
     <button ion-button icon-only enabled (click)="openPage('search')" float-left>
       <ion-icon name="ios-globe-outline"></ion-icon>
     </button>
   </ion-buttons>
 
-  <ion-buttons ionc-start >
+  <ion-buttons >
     <button ion-button icon-only enabled (click)="openPage('customer')">
       <!--<ion-icon> <img src="assets/icon/ic_insert_chart_white_24px.svg"/></ion-icon>-->
       <ion-icon name="ios-contacts"></ion-icon>
     </button>
   </ion-buttons>
 
-  <ion-buttons ionc-start >
+  <ion-buttons  >
     <button ion-button icon-only enabled (click)="openPage('insurance')">
       <ion-icon name="pricetags"></ion-icon>
     </button>
   </ion-buttons>
-  <ion-buttons ionc-start>
+  <ion-buttons>
     <button ion-button icon-only (click)="openPage('application')">
       <ion-icon name="paper"></ion-icon>
     </button>
   </ion-buttons>
-  <ion-buttons ionc-start >
+  <ion-buttons  margin-right="40px">
     <button ion-button icon-only (click)="openPage('settings')">
       <ion-icon name="settings"></ion-icon>
     </button>
   </ion-buttons>
 
-  <ion-title>
-  <!--<img *ngIf="logo" [src]=logo width="169px" style="display:inline-block" height="40px"/>-->
-  <span  style="margin-left:20px">Intelligent Insurance </span>
-  </ion-title>
 </ion-row>
 </ion-navbar>
 
