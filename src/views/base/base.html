@@ -1,6 +1,14 @@
 <ion-header>
 <iins-header></iins-header>
 </ion-header>
-<ion-content>
-<iins-search></iins-search>
+
+
+
+<ion-content #mainMenu>
+    <ion-menu [content]="mainMenu">
+        <iins-menu></iins-menu>
+    </ion-menu>
+
+<iins-search ></iins-search>
+
 </ion-content>

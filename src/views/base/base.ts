@@ -2,7 +2,7 @@
  * Created by isaacjiang on 2017-07-03.
  */
 import {Component,ViewChild} from '@angular/core';
-import {Http} from '@angular/http'
+import {Http,URLSearchParams} from '@angular/http'
 import {NavController,App,Events,Tabs} from 'ionic-angular';
 import 'rxjs';
 
@@ -17,7 +17,6 @@ export class BasePage {
   public authentication = {};
   public attributes ={};
 
-  // @ViewChild('navTabs') tabRef: Tabs;
   constructor(
               public nav: NavController,
               public http:Http,
@@ -35,6 +34,7 @@ export class BasePage {
 
   ionViewDidEnter()
   {
+
   }
   ionViewWillLeave() {
 
@@ -45,9 +45,10 @@ export class BasePage {
     root.http.get('/rest/admin/userstatus').map(response => response.json())
       .subscribe((authentication) => {
         root.authentication = authentication;
-      // console.log('authentication',root.authentication)
+          console.log('authentication',root.authentication)
       })
   }
+
 
 
 }

@@ -5,14 +5,14 @@ import {Component} from '@angular/core';
 import {Http} from '@angular/http'
 import {NavController, LoadingController, App,Events,MenuController} from 'ionic-angular';
 import 'rxjs';
-import {FileUploader } from 'ng2-file-upload';
+
 
 
 @Component({
   selector: 'iins-search',
   templateUrl: '../search/search.html'
 })
-export class SearchPage {
+export class SearchComponent {
   public params;
   public data;
   public authentication;
@@ -50,7 +50,6 @@ export class SearchPage {
     console.log(this.menu)
     // this.viewCtrl.showBackButton(false);
     this.app.setTitle('Intelligent Insurance')
-    this.updateUserStatus()
 
   }
 
@@ -61,14 +60,6 @@ export class SearchPage {
 
   }
 
-  updateUserStatus() {
-    let root = this
-    root.http.get('/rest/admin/userstatus').map(response => response.json())
-      .subscribe((authentication) => {
-        root.authentication = authentication;
-        // console.log('authentication',root.authentication)
-      })
-  }
 
   doSomething(){
     console.log( this.menu)

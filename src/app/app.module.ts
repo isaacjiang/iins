@@ -12,8 +12,9 @@ import { InsurancePage } from '../views/insurance/insurance'
 import { ApplicationsPage } from '../views/applications/applications'
 import { SettingsPage } from '../views/settings/settings'
 
-import { Header } from '../components/header/header'
-import { SearchPage } from '../components/search/search'
+import { HeaderComponent } from '../components/header/header'
+import { SearchComponent } from '../components/search/search'
+import { MenuComponent } from '../components/menu/menu'
 
 import { FileSelectDirective } from 'ng2-file-upload';
 
@@ -24,10 +25,11 @@ import { FileSelectDirective } from 'ng2-file-upload';
     CustomerPage,
     InsurancePage,
     ApplicationsPage,
-    SearchPage,
+    SearchComponent,
+      MenuComponent,
     SettingsPage,
     FileSelectDirective,
-    Header
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -41,9 +43,10 @@ import { FileSelectDirective } from 'ng2-file-upload';
     CustomerPage,
     InsurancePage,
     ApplicationsPage,
-    SearchPage,
+    SearchComponent,
     SettingsPage,
-    Header
+    HeaderComponent,
+      MenuComponent
   ],
   providers: [
     StatusBar,

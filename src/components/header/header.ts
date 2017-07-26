@@ -7,7 +7,7 @@ import {Events,MenuController} from "ionic-angular";
 // import { CustomerPage } from '../customer/customer'
 // import { InsurancePage } from '../insurance/insurance'
 // import { ApplicationsPage } from '../applications/applications'
-import { SearchPage } from '../../components/search/search'
+import { SearchComponent } from '../../components/search/search'
 // import { SettingsPage } from '../settings/settings'
 
 
@@ -17,7 +17,7 @@ import { SearchPage } from '../../components/search/search'
 })
 
 
-export class Header {
+export class HeaderComponent {
     public data:any;
     public params:any;
     public logo:any;
