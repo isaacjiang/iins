@@ -18,10 +18,7 @@ import { SearchComponent } from '../../components/search/search'
 
 
 export class HeaderComponent {
-    public data:any;
-    public params:any;
-    public logo:any;
-    public title:any;
+    public authentication:any;
 
     constructor(
         public events: Events,
@@ -32,30 +29,20 @@ export class HeaderComponent {
     }
 
   eventsHandles(root){
-    root.events.unsubscribe('getPortsOverviewStatus_header')
-    root.events.unsubscribe('getPortBandwidth_header')
 
-    root.events.subscribe('getPortBandwidth_header',(d,p)=> {
+    root.events.subscribe('authentication',(authentication)=> {
      // console.log('getPortBandwidth_header',d,p);
-      if(d){
-         this.title = {ip:d.IP,port:d.Port}
-      }
+     root.authentication= authentication
     })
   }
 
-  toggleMenu = function(menuId){
-    this.menuController.toggle(menuId)
+  toggleMenu = function(param){
+    this.events.publish('toggleMainMenu',param)
+    this.menuController.toggle('mainmenu')
   }
 
-  openPage = function (pageName) {
-    this.events.publish('activepage',{active:pageName})
-    console.log(pageName)
-  }
-  openPort =function (port)
-  {
-    //this.params.port = port.port;
-    this.events.publish('activepage',{active:'portInfo'},port)
-  }
+
+
 
 
 }

@@ -14,22 +14,33 @@ import 'rxjs';
 })
 export class MenuComponent {
 
-  public mainMenuWorkflow=[]
+  public mainMenuWorkflow=[];
+  public authentication:any;
 
   constructor(
               public http:Http,
               public loadingCtrl: LoadingController,
               public events:Events)
   {
-    //data initialization
-      this.getWorkflow('mainMenu')
+      this.eventsHandles(this)
   }
 
+ eventsHandles(root){
+     root.events.subscribe('authentication',(authentication)=> {
+         // console.log('getPortBandwidth_header',d,p);
+         root.authentication= authentication
+     })
+    root.events.subscribe('toggleMainMenu',(param)=> {
+        this.getWorkflow(param)
+    })
+ }
 
   getWorkflow(jobName) {
         let root = this
         let searchParams: URLSearchParams = new URLSearchParams();
         searchParams.set('jobName', jobName);
+        searchParams.set('username',root.authentication['username']);
+
         root.http.get('/rest/workflow/getworkflowtemp',{search:searchParams}).map(response => response.json())
             .subscribe((workflow) => {
                 root.mainMenuWorkflow=workflow;

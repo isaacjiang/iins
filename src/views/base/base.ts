@@ -44,8 +44,13 @@ export class BasePage {
     let root = this
     root.http.get('/rest/admin/userstatus').map(response => response.json())
       .subscribe((authentication) => {
+      //testing
+          authentication = {is_active:true, is_anonymous: false,is_authenticated: true,sid: "f600d1c4-c3f3-493b-ba85-fe80e5f27370",
+              username:'Admin'}
+
         root.authentication = authentication;
           console.log('authentication',root.authentication)
+        this.events.publish('authentication',authentication)
       })
   }
 
