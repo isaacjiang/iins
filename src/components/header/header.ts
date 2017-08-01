@@ -1,19 +1,19 @@
 /**
  * Created by isaacjiang on 2016-09-01.
  */
-import {Component, Input} from '@angular/core';
+import {Component} from '@angular/core';
+import {Events,MenuController,NavController} from "ionic-angular";
+import { CustomerPage } from '../../views/customer/customer'
+import { InsurancePage } from '../../views/insurance/insurance'
+import { ApplicationsPage } from '../../views/applications/applications'
+import { SettingsPage } from '../../views/settings/settings'
 
-import {Events,MenuController} from "ionic-angular";
-// import { CustomerPage } from '../customer/customer'
-// import { InsurancePage } from '../insurance/insurance'
-// import { ApplicationsPage } from '../applications/applications'
-import { SearchComponent } from '../../components/search/search'
-// import { SettingsPage } from '../settings/settings'
-
+import {BaseService} from '../../views/base/base'
 
 @Component({
     selector: 'iins-header',
-    templateUrl: 'header.html'
+    templateUrl: 'header.html',
+    providers:[BaseService]
 })
 
 
@@ -22,7 +22,8 @@ export class HeaderComponent {
 
     constructor(
         public events: Events,
-        public menuController:MenuController
+        public menuCtrl:MenuController,
+        public navCtrl:NavController
     ) {
 
       this.eventsHandles(this)
@@ -30,15 +31,36 @@ export class HeaderComponent {
 
   eventsHandles(root){
 
-    root.events.subscribe('authentication',(authentication)=> {
-     // console.log('getPortBandwidth_header',d,p);
-     root.authentication= authentication
-    })
   }
 
   toggleMenu = function(param){
     this.events.publish('toggleMainMenu',param)
-    this.menuController.toggle('mainmenu')
+
+
+      switch (param) {
+          case 'customer': {
+              this.navCtrl.setRoot(CustomerPage);
+              break;
+          }
+
+          case 'application': {
+              this.navCtrl.setRoot(ApplicationsPage);
+              break;
+          }
+          case 'settings': {
+              this.navCtrl.setRoot(SettingsPage);
+              break;
+          }
+          default: {
+              this.navCtrl.setRoot(InsurancePage);
+              this.menuCtrl.enable()
+              this.menuCtrl.toggle()
+              break;
+          }
+      }
+
+
+      this.events.publish('toggleMenu',param)
   }
 
 

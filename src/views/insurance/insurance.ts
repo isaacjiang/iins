@@ -3,69 +3,52 @@
  */
 import {Component} from '@angular/core';
 import {Http} from '@angular/http'
-import {NavController, LoadingController, App,Events} from 'ionic-angular';
+import {MenuController, LoadingController, App,Events} from 'ionic-angular';
 import 'rxjs';
+
+import {BaseService} from '../base/base'
 import {FileUploader } from 'ng2-file-upload';
 
-
 @Component({
-  templateUrl: '../insurance/insurance.html'
+  templateUrl: '../insurance/insurance.html',
+  providers:[BaseService]
 })
 export class InsurancePage {
-  public params;
-  public data;
-  public auth;
-  public activePage;
-  public uploader:FileUploader = new FileUploader({url: '/rest/files/upload'});
-  public authentication;
 
-  constructor(
-              public nav: NavController,
-              public http:Http,
-              public loadingCtrl: LoadingController,
-              public events:Events,
-              public app: App)
-  {
-    //data initialization
+    public uploader:FileUploader = new FileUploader({url: '/rest/files/upload'});
 
-    this.data = {};
-    this.params=
+    constructor(
+        public http:Http,
+        public events:Events,
+        public menuCtrl:MenuController,
+        public baseService:BaseService,
+        public app: App)
     {
-      user:"admin",
-      pwd:"providius1234!",
-      ip:'192.168.1.120',
-      port:'1',
-      deviceType: "ARISTA",
-      duration:0
-    };
-    this.activePage='devicesList'
-   // console.log('fileupload:',this.uploader)
-
-  }
-
+this.eventsHandles(this)
+    }
+    eventsHandles(root) {
+        root.events.unsubscribe('toggleMenu')
+        root.events.subscribe('toggleMenu', (param) => {
+          console.log(param)
+            this.menuCtrl.toggle('insurancemenu')
+        })
+    }
   ionViewWillEnter()
   {
-    // this.viewCtrl.showBackButton(false);
     this.app.setTitle('Intelligent Insurance')
-    this.updateUserStatus()
-
   }
 
   ionViewDidEnter()
   {
+    console.log('insurance page')
+    console.log(this.baseService.global)
   }
   ionViewWillLeave() {
 
   }
-
-  updateUserStatus() {
-    let root = this
-    root.http.get('/rest/admin/userstatus').map(response => response.json())
-      .subscribe((authentication) => {
-        root.authentication = authentication;
-        // console.log('authentication',root.authentication)
-      })
-  }
+    openMenu(){
+        this.menuCtrl.toggle('insurancemenu')
+    }
 
 
 }

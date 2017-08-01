@@ -1,21 +1,17 @@
 /**
  * Created by isaacjiang on 2017-07-03.
  */
-import {Component,ViewChild} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Http,URLSearchParams} from '@angular/http'
 import {NavController,App,Events,Tabs} from 'ionic-angular';
 import 'rxjs';
 
 
-
-
-@Component({
-  templateUrl: 'base.html'
-})
-export class BasePage {
-
+@Injectable()
+export class BaseService {
   public authentication = {};
-  public attributes ={};
+  public global ={server_ip:"localhost"};
+
 
   constructor(
               public nav: NavController,
@@ -26,19 +22,6 @@ export class BasePage {
     this.updateUserStatus()
   }
 
-  ionViewWillEnter()
-  {
-    // console.log(this.tabRef)
-    this.app.setTitle('Intelligent Insurance')
-  }
-
-  ionViewDidEnter()
-  {
-
-  }
-  ionViewWillLeave() {
-
-  }
 
   updateUserStatus() {
     let root = this
@@ -49,10 +32,11 @@ export class BasePage {
               username:'Admin',permissions:['Administrator']}
 
         root.authentication = authentication;
-          console.log('authentication',root.authentication)
+
         this.events.publish('authentication',authentication)
       })
   }
+
 
 
 

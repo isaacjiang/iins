@@ -1,13 +1,17 @@
-<ion-header>
+<ion-header >
   <iins-header></iins-header>
 </ion-header>
-<ion-content>
+
+<ion-menu [content]="mainMenu" id="mainmenu">
+  <iins-menu></iins-menu>
+</ion-menu>
+
+<ion-content #mainMenu>
+
   <iins-search></iins-search>
 
-  <ion-grid *ngIf="activePage=='devicesList'">
-    welcome
-
-    Single
+  <ion-grid >
+   Customer Page
     <input type="file" ng2FileSelect [uploader]="uploader" />
 
     <button type="button" class="btn btn-success btn-xs"

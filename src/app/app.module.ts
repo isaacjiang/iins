@@ -6,7 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { HttpModule } from '@angular/http';
 import { iinsApp } from './app.component';
 
-import { BasePage } from '../views/base/base';
+import { BaseService } from '../views/base/base';
 import { CustomerPage } from '../views/customer/customer'
 import { InsurancePage } from '../views/insurance/insurance'
 import { ApplicationsPage } from '../views/applications/applications'
@@ -21,12 +21,11 @@ import { FileSelectDirective } from 'ng2-file-upload';
 @NgModule({
   declarations: [
     iinsApp,
-    BasePage,
     CustomerPage,
     InsurancePage,
     ApplicationsPage,
     SearchComponent,
-      MenuComponent,
+    MenuComponent,
     SettingsPage,
     FileSelectDirective,
     HeaderComponent
@@ -39,18 +38,18 @@ import { FileSelectDirective } from 'ng2-file-upload';
   bootstrap: [IonicApp],
   entryComponents: [
     iinsApp,
-    BasePage,
     CustomerPage,
     InsurancePage,
     ApplicationsPage,
     SearchComponent,
     SettingsPage,
     HeaderComponent,
-      MenuComponent
+    MenuComponent
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    BaseService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

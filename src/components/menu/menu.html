@@ -3,12 +3,13 @@
     <ion-title >{{ menuTitle }}</ion-title>
   </ion-toolbar>
 
-  <ion-list>
-    <button  ion-item (click)="changeView(menuItem)" *ngFor="let menuItem of mainMenuWorkflow">
+  <ion-list >
+    <button  ion-item *ngFor="let menuItem of mainMenuWorkflow" (click)="changeView(menuItem)">
      {{ menuItem.taskName }}
     </button>
 
   </ion-list>
+
 
 
 

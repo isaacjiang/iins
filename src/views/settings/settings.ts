@@ -5,17 +5,16 @@ import {Component} from '@angular/core';
 import {Http} from '@angular/http'
 import {NavController, LoadingController, App,Events} from 'ionic-angular';
 import 'rxjs';
+import {BaseService} from '../base/base'
 import {FileUploader } from 'ng2-file-upload';
 
 
 @Component({
-  templateUrl: '../settings/settings.html'
+  templateUrl: '../settings/settings.html',
+    providers:[BaseService]
 })
 export class SettingsPage {
-  public params;
-  public data;
-  public authentication;
-  public activePage;
+
   public uploader:FileUploader = new FileUploader({url: '/rest/files/upload'});
 
 
@@ -24,30 +23,17 @@ export class SettingsPage {
               public http:Http,
               public loadingCtrl: LoadingController,
               public events:Events,
+              public baseService:BaseService,
               public app: App)
   {
     //data initialization
 
-    this.data = {};
-    this.params=
-    {
-      user:"admin",
-      pwd:"providius1234!",
-      ip:'192.168.1.120',
-      port:'1',
-      deviceType: "ARISTA",
-      duration:0
-    };
-    this.activePage='devicesList'
-    console.log('fileupload:',this.uploader)
 
   }
 
   ionViewWillEnter()
   {
-    // this.viewCtrl.showBackButton(false);
-    this.app.setTitle('Intelligent Insurance')
-    this.updateUserStatus()
+
 
   }
 
@@ -58,14 +44,6 @@ export class SettingsPage {
 
   }
 
-  updateUserStatus() {
-    let root = this
-    root.http.get('/rest/admin/userstatus').map(response => response.json())
-      .subscribe((authentication) => {
-        root.authentication = authentication;
-        // console.log('authentication',root.authentication)
-      })
-  }
 
 
 
