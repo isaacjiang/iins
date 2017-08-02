@@ -15,6 +15,7 @@ import { SettingsPage } from '../views/settings/settings'
 import { HeaderComponent } from '../components/header/header'
 import { SearchComponent } from '../components/search/search'
 import { MenuComponent } from '../components/menu/menu'
+import { TodoComponent } from '../components/todo/todo'
 
 import { FileSelectDirective } from 'ng2-file-upload';
 
@@ -26,6 +27,7 @@ import { FileSelectDirective } from 'ng2-file-upload';
     ApplicationsPage,
     SearchComponent,
     MenuComponent,
+    TodoComponent,
     SettingsPage,
     FileSelectDirective,
     HeaderComponent
@@ -41,10 +43,7 @@ import { FileSelectDirective } from 'ng2-file-upload';
     CustomerPage,
     InsurancePage,
     ApplicationsPage,
-    SearchComponent,
-    SettingsPage,
-    HeaderComponent,
-    MenuComponent
+    SettingsPage
   ],
   providers: [
     StatusBar,

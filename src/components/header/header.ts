@@ -34,10 +34,7 @@ export class HeaderComponent {
   }
 
   toggleMenu = function(param){
-    this.events.publish('toggleMainMenu',param)
-
-
-      switch (param) {
+    switch (param) {
           case 'customer': {
               this.navCtrl.setRoot(CustomerPage);
               break;
@@ -53,14 +50,10 @@ export class HeaderComponent {
           }
           default: {
               this.navCtrl.setRoot(InsurancePage);
-              this.menuCtrl.enable()
-              this.menuCtrl.toggle()
               break;
           }
       }
 
-
-      this.events.publish('toggleMenu',param)
   }
 
 

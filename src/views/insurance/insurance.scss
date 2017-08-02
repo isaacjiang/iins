@@ -3,11 +3,18 @@
   display: none;
 }
 
-ion-grid {
-  height: 100%;
+ion-range{
+  width: 95%;
+  margin-left: 5%;
+
 }
 
-ion-loading ion-spinner{
-  width: 90px;
-  height: 90px;
+
+ion-grid{
+
+  height: 86%;
+  ion-row{
+    height: 100%;
+  }
 }
+

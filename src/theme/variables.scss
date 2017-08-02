@@ -37,11 +37,22 @@ $colors: (
   primary:    #778899,//#488aff,
   secondary:  #696969,
   danger:     #FF0000,
+  alert:      #ffff00,
+  active:     #00ff00,
   light:      #F8F8F8,
-  dark:       #202020
+  dark:       #202020,
+
+  transparent: rgba(255, 255, 255, .3)
 );
 
-
+$range-md-bar-height:2px;
+$range-md-bar-background-color:#bdbdbd;
+$range-md-bar-active-background-color:#FF0000;
+$range-md-tick-height:12px;
+$range-md-tick-width:1px;
+$range-md-tick-border-radius:3;
+$range-md-tick-background-color:#696969;
+$range-md-tick-active-background-color: #008100;
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here

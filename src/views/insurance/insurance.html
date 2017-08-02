@@ -2,26 +2,35 @@
   <iins-header></iins-header>
 </ion-header>
 
-<ion-menu [content]="mainMenu" id="insurancemenu">
-  <iins-menu></iins-menu>
+<ion-menu [content]="mainMenu">
+  <iins-menu menu_id="insurance"></iins-menu>
 </ion-menu>
 
-<ion-content #mainMenu>
+<ion-content #mainMenu style="background-color: #F8F8F8">
+    <ion-fab>
+        <button ion-fab mini color="transparent" (click)="openMenu()">
+            <ion-icon name="menu"></ion-icon>
+        </button>
+    </ion-fab>
+    <ion-range min="0" max="5" step="1" snaps="true" color="danger" [(ngModel)]="workoutProgress"></ion-range>
 
-  <iins-search></iins-search>
-  <button type="button" class="btn btn-success btn-xs"
-          (click)="openMenu()" >
-    OPEN
-  </button>
-  <ion-grid >
-   Insurance Page
-    <input type="file" ng2FileSelect [uploader]="uploader" />
+<ion-grid >
+    <ion-row>
+        <ion-col col-3>
+            <iins-todo></iins-todo>
+        </ion-col>
+        <ion-col >
 
-    <button type="button" class="btn btn-success btn-xs"
-            (click)="uploader.uploadAll()" >
-      <span class="glyphicon glyphicon-upload"></span> Upload
-    </button>
-  </ion-grid>
+        </ion-col>
+    </ion-row>
+<!--Insurance Page-->
+<!--<input type="file" ng2FileSelect [uploader]="uploader" />-->
+
+<!--<button type="button" class="btn btn-success btn-xs"-->
+        <!--(click)="uploader.uploadAll()" >-->
+  <!--<span class="glyphicon glyphicon-upload"></span> Upload-->
+<!--</button>-->
+</ion-grid>
 
 
 

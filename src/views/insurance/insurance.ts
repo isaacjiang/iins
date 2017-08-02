@@ -3,51 +3,57 @@
  */
 import {Component} from '@angular/core';
 import {Http} from '@angular/http'
-import {MenuController, LoadingController, App,Events} from 'ionic-angular';
+import {MenuController, LoadingController, App, Events} from 'ionic-angular';
 import 'rxjs';
 
 import {BaseService} from '../base/base'
-import {FileUploader } from 'ng2-file-upload';
+import {FileUploader} from 'ng2-file-upload';
 
 @Component({
-  templateUrl: '../insurance/insurance.html',
-  providers:[BaseService]
+    templateUrl: '../insurance/insurance.html',
+    providers: [BaseService]
 })
 export class InsurancePage {
 
-    public uploader:FileUploader = new FileUploader({url: '/rest/files/upload'});
-
-    constructor(
-        public http:Http,
-        public events:Events,
-        public menuCtrl:MenuController,
-        public baseService:BaseService,
-        public app: App)
+    public uploader: FileUploader = new FileUploader({url: '/rest/files/upload'});
+    public workoutProgress: any;
+    constructor(public http: Http,
+                public events: Events,
+                public menuCtrl: MenuController,
+                public baseService: BaseService,
+                public app: App)
     {
-this.eventsHandles(this)
+        this.eventsHandles(this)
     }
+
     eventsHandles(root) {
-        root.events.unsubscribe('toggleMenu')
-        root.events.subscribe('toggleMenu', (param) => {
-          console.log(param)
-            this.menuCtrl.toggle('insurancemenu')
+        // root.events.unsubscribe('menuClick')
+        root.events.subscribe('menuClick', (param) => {
+            console.log(param)
+            this.menuCtrl.close()
         })
     }
-  ionViewWillEnter()
-  {
-    this.app.setTitle('Intelligent Insurance')
-  }
 
-  ionViewDidEnter()
-  {
-    console.log('insurance page')
-    console.log(this.baseService.global)
-  }
-  ionViewWillLeave() {
+    ionViewWillEnter() {
+        this.app.setTitle('Intelligent Insurance')
+    }
 
-  }
-    openMenu(){
-        this.menuCtrl.toggle('insurancemenu')
+    ionViewDidEnter() {
+        console.log(this.baseService.global)
+        this.updateProgress(0.3)
+    }
+
+    ionViewWillLeave() {
+
+    }
+
+    updateProgress(val) {
+        // Update percentage value where the above is a decimal
+        this.workoutProgress = Math.min( (val * 5), 5);
+    }
+
+    openMenu() {
+        this.menuCtrl.toggle()
     }
 
 

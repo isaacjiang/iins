@@ -9,11 +9,11 @@ import 'rxjs';
 import {BaseService} from '../../views/base/base'
 
 @Component({
-    selector: 'iins-menu',
-    templateUrl: '../menu/menu.html',
+    selector: 'iins-todo',
+    templateUrl: '../todo/todo.html',
     providers:[BaseService]
 })
-export class MenuComponent {
+export class TodoComponent {
 
     public mainMenuWorkflow = [];
     public menuTitle:any;
@@ -26,13 +26,13 @@ export class MenuComponent {
        setTimeout(()=>{
            console.log('menuid',this.menu_id)
             this.initialiaze()
-            this.menuTitle = this.menu_id.toUpperCase()
+
        },10)
     }
 
     initialiaze()
     {
-        this.getWorkflow(this.menu_id)
+        // this.getWorkflow(this.menu_id)
     }
 
 
@@ -49,9 +49,7 @@ export class MenuComponent {
             })
     }
 
-    menuClick(funcName){
-        this.events.publish('menuClick',funcName)
-    }
+
 
 
 }

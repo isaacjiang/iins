@@ -8,28 +8,23 @@
     <span  style="margin-left:20px">Intelligent Insurance </span>
   </ion-title>
   <ion-buttons >
-    <button ion-button icon-only enabled (click)="toggleMenu('search')" float-left>
+    <button ion-button icon-only  (click)="toggleMenu('insurance')" >
       <ion-icon name="ios-globe-outline"></ion-icon>
     </button>
   </ion-buttons>
 
   <ion-buttons >
-    <button ion-button icon-only enabled (click)="toggleMenu('customer')">
-      <!--<ion-icon> <img src="assets/icon/ic_insert_chart_white_24px.svg"/></ion-icon>-->
+    <button ion-button icon-only  (click)="toggleMenu('customer')">
       <ion-icon name="ios-contacts"></ion-icon>
     </button>
   </ion-buttons>
 
   <ion-buttons  >
-    <button ion-button icon-only enabled (click)="toggleMenu('insurance')">
+    <button ion-button icon-only  (click)="toggleMenu('application')">
       <ion-icon name="pricetags"></ion-icon>
     </button>
   </ion-buttons>
-  <ion-buttons>
-    <button ion-button icon-only (click)="toggleMenu('application')">
-      <ion-icon name="paper"></ion-icon>
-    </button>
-  </ion-buttons>
+
   <ion-buttons  margin-right="40px">
     <button ion-button icon-only (click)="toggleMenu('settings')">
       <ion-icon name="settings"></ion-icon>
