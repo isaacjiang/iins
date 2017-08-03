@@ -1,55 +1,58 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { StatusBar } from '@ionic-native/status-bar';
-import { HttpModule } from '@angular/http';
-import { iinsApp } from './app.component';
+import {BrowserModule} from '@angular/platform-browser';
+import {ErrorHandler, NgModule} from '@angular/core';
+import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
+import {SplashScreen} from '@ionic-native/splash-screen';
+import {StatusBar} from '@ionic-native/status-bar';
+import {HttpModule} from '@angular/http';
+import {iinsApp} from './app.component';
 
-import { BaseService } from '../views/base/base';
-import { CustomerPage } from '../views/customer/customer'
-import { InsurancePage } from '../views/insurance/insurance'
-import { ApplicationsPage } from '../views/applications/applications'
-import { SettingsPage } from '../views/settings/settings'
+import {BaseService} from '../views/base/base';
+import {CustomerPage} from '../views/customer/customer'
+import {InsurancePage} from '../views/insurance/insurance'
+import {ApplicationsPage} from '../views/applications/applications'
+import {SettingsPage} from '../views/settings/settings'
 
-import { HeaderComponent } from '../components/header/header'
-import { SearchComponent } from '../components/search/search'
-import { MenuComponent } from '../components/menu/menu'
-import { TodoComponent } from '../components/todo/todo'
+import {HeaderComponent} from '../components/header/header'
+import {SearchComponent} from '../components/search/search'
+import {MenuComponent} from '../components/menu/menu'
+import {TodoComponent} from '../components/todo/todo'
+import {TableComponent} from '../components/table/table'
 
-import { FileSelectDirective } from 'ng2-file-upload';
+import {FileSelectDirective} from 'ng2-file-upload';
 
 @NgModule({
-  declarations: [
-    iinsApp,
-    CustomerPage,
-    InsurancePage,
-    ApplicationsPage,
-    SearchComponent,
-    MenuComponent,
-    TodoComponent,
-    SettingsPage,
-    FileSelectDirective,
-    HeaderComponent
-  ],
-  imports: [
-    BrowserModule,
-    HttpModule,
-    IonicModule.forRoot(iinsApp)
-  ],
-  bootstrap: [IonicApp],
-  entryComponents: [
-    iinsApp,
-    CustomerPage,
-    InsurancePage,
-    ApplicationsPage,
-    SettingsPage
-  ],
-  providers: [
-    StatusBar,
-    SplashScreen,
-    BaseService,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
-  ]
+    declarations: [
+        iinsApp,
+        CustomerPage,
+        InsurancePage,
+        ApplicationsPage,
+        SearchComponent,
+        MenuComponent,
+        TodoComponent,
+        TableComponent,
+        SettingsPage,
+        FileSelectDirective,
+        HeaderComponent
+    ],
+    imports: [
+        BrowserModule,
+        HttpModule,
+        IonicModule.forRoot(iinsApp)
+    ],
+    bootstrap: [IonicApp],
+    entryComponents: [
+        iinsApp,
+        CustomerPage,
+        InsurancePage,
+        ApplicationsPage,
+        SettingsPage
+    ],
+    providers: [
+        StatusBar,
+        SplashScreen,
+        BaseService,
+        {provide: ErrorHandler, useClass: IonicErrorHandler}
+    ]
 })
-export class AppModule {}
+export class AppModule {
+}

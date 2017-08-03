@@ -1,27 +1,22 @@
 <ion-header >
-  <iins-header></iins-header>
+    <iins-header></iins-header>
 </ion-header>
 
-<ion-menu [content]="mainMenu" id="mainmenu">
-  <iins-menu></iins-menu>
+<ion-menu [content]="mainMenu">
+    <iins-menu menu_id="customer"></iins-menu>
 </ion-menu>
 
-<ion-content #mainMenu>
+<ion-content #mainMenu style="background-color: #F8F8F8">
+    <ion-grid >
+        <ion-row>
+            <ion-col col-3>
+                <iins-todo menu_id="customer"></iins-todo>
+            </ion-col>
+            <ion-col >
+                <iins-table></iins-table>
+            </ion-col>
+        </ion-row>
 
-  <iins-search></iins-search>
-
-  <ion-grid >
-   Customer Page
-    <input type="file" ng2FileSelect [uploader]="uploader" />
-
-    <button type="button" class="btn btn-success btn-xs"
-            (click)="uploader.uploadAll()" >
-      <span class="glyphicon glyphicon-upload"></span> Upload
-    </button>
-  </ion-grid>
-
-
-
-
+    </ion-grid>
 
 </ion-content>

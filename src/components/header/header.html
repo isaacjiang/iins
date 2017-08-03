@@ -3,31 +3,41 @@
 <ion-navbar color="primary">
 <ion-row>
 
-  <ion-title>
+  <ion-title col-4>
     <!--<img *ngIf="logo" [src]=logo width="169px" style="display:inline-block" height="40px"/>-->
     <span  style="margin-left:20px">Intelligent Insurance </span>
   </ion-title>
-  <ion-buttons >
-    <button ion-button icon-only  (click)="toggleMenu('insurance')" >
+  <ion-buttons col-1 >
+    <button style="width: 100%" ion-button outline item-end icon-left (click)="toggleMenu('insurance')" >
       <ion-icon name="ios-globe-outline"></ion-icon>
+      Home
+    </button>
+  </ion-buttons>
+  <ion-buttons  col-1 >
+    <button ion-button outline item-end icon-left (click)="toggleMenu('application')">
+      <ion-icon name="ios-briefcase"></ion-icon>
+      Issue
     </button>
   </ion-buttons>
 
-  <ion-buttons >
-    <button ion-button icon-only  (click)="toggleMenu('customer')">
+  <ion-buttons col-1 >
+    <button ion-button outline item-end icon-left (click)="toggleMenu('customer')">
       <ion-icon name="ios-contacts"></ion-icon>
+      Customer
     </button>
   </ion-buttons>
 
-  <ion-buttons  >
-    <button ion-button icon-only  (click)="toggleMenu('application')">
-      <ion-icon name="pricetags"></ion-icon>
+  <ion-buttons  col-1 >
+    <button ion-button outline item-end icon-left (click)="toggleMenu('application')">
+      <ion-icon name="ios-stats"></ion-icon>
+      Statistics
     </button>
   </ion-buttons>
 
-  <ion-buttons  margin-right="40px">
-    <button ion-button icon-only (click)="toggleMenu('settings')">
+  <ion-buttons col-1  margin-right="40px">
+    <button ion-button outline item-end icon-left (click)="toggleMenu('settings')">
       <ion-icon name="settings"></ion-icon>
+      Admin
     </button>
   </ion-buttons>
 

@@ -3,7 +3,7 @@
  */
 import {Component} from '@angular/core';
 import {Http} from '@angular/http'
-import {NavController, LoadingController, App,Events} from 'ionic-angular';
+import {NavController, LoadingController,MenuController, App,Events} from 'ionic-angular';
 import 'rxjs';
 import {BaseService} from '../base/base'
 
@@ -24,6 +24,7 @@ export class ApplicationsPage {
               public http:Http,
               public loadingCtrl: LoadingController,
               public events:Events,
+              public menuCtrl: MenuController,
               public baseService:BaseService,
               public app: App)
   {
@@ -45,6 +46,13 @@ export class ApplicationsPage {
 
   }
 
+    eventsHandles(root) {
+        // root.events.unsubscribe('menuClick')
+        root.events.subscribe('menuClick', (param) => {
+            console.log(param)
+            this.menuCtrl.close()
+        })
+    }
 
 
 }

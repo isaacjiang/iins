@@ -26,13 +26,24 @@ export class TodoComponent {
        setTimeout(()=>{
            console.log('menuid',this.menu_id)
             this.initialiaze()
-
+           if (this.menu_id=='insurance'){
+               this.menuTitle = 'Home'
+           }
+           else if(this.menu_id=='application'){
+               this.menuTitle = 'Issue Policy'
+           }
+           else if(this.menu_id=='customer'){
+               this.menuTitle = 'Customer'
+           }
+           else if(this.menu_id=='settings'){
+               this.menuTitle = 'Settings'
+           }
        },10)
     }
 
     initialiaze()
     {
-        // this.getWorkflow(this.menu_id)
+         this.getWorkflow(this.menu_id)
     }
 
 
@@ -49,6 +60,9 @@ export class TodoComponent {
             })
     }
 
+    menuClick(funcName){
+        this.events.publish('menuClick',funcName)
+    }
 
 
 

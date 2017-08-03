@@ -1,37 +1,14 @@
 <ion-card>
-  <ion-card-header>
-    TODO
-  </ion-card-header>
+  <!--<ion-card-header>-->
+    <!--TODO-->
+  <!--</ion-card-header>-->
+  <ion-toolbar color ='secondary'>
+    <ion-title >{{ menuTitle }}</ion-title>
+  </ion-toolbar>
 
-  <ion-list>
-    <button ion-item>
-
-      Shopping
-    </button>
-
-    <button ion-item>
-
-      Hospital
-    </button>
-
-    <button ion-item>
-
-      Cafe
-    </button>
-
-    <button ion-item>
-
-      Dog Park
-    </button>
-
-    <button ion-item>
-
-      Pub
-    </button>
-
-    <button ion-item>
-
-      Space
+  <ion-list >
+    <button  ion-item *ngFor="let menuItem of mainMenuWorkflow" (click)="menuClick(menuItem)">
+      {{ menuItem.taskName }}
     </button>
 
   </ion-list>

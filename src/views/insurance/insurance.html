@@ -2,25 +2,25 @@
   <iins-header></iins-header>
 </ion-header>
 
-<ion-menu [content]="mainMenu">
+<ion-menu [content]="mainMenu" >
   <iins-menu menu_id="insurance"></iins-menu>
 </ion-menu>
 
 <ion-content #mainMenu style="background-color: #F8F8F8">
-    <ion-fab>
-        <button ion-fab mini color="transparent" (click)="openMenu()">
-            <ion-icon name="menu"></ion-icon>
-        </button>
-    </ion-fab>
-    <ion-range min="0" max="5" step="1" snaps="true" color="danger" [(ngModel)]="workoutProgress"></ion-range>
+    <!--<ion-fab>-->
+        <!--<button ion-fab mini color="transparent" (click)="openMenu()">-->
+            <!--<ion-icon name="menu"></ion-icon>-->
+        <!--</button>-->
+    <!--</ion-fab>-->
+    <!--<ion-range min="0" max="5" step="1" snaps="true" color="danger" [(ngModel)]="workoutProgress"></ion-range>-->
 
 <ion-grid >
     <ion-row>
         <ion-col col-3>
-            <iins-todo></iins-todo>
+            <iins-todo menu_id="insurance"></iins-todo>
         </ion-col>
         <ion-col >
-
+            <iins-table></iins-table>
         </ion-col>
     </ion-row>
 <!--Insurance Page-->
