@@ -1,0 +1,37 @@
+<ion-card>
+  <ion-card-header>
+   Policy File Upload
+  </ion-card-header>
+
+  <ion-card-content>
+    <ion-grid>
+      <ion-row>
+          <ion-buttons col-9>
+            <button ion-button  outline icon-right>
+              <input type="file" ng2FileSelect [uploader]="uploader" id="file-input"/>
+               {{ uploader.queue.length>0? uploader.queue[0].file.name:"Choose a file"}}
+            </button>
+          </ion-buttons>
+
+          <ion-buttons>
+            <button ion-button outline icon-left (click)="uploader.uploadAll()" >
+              <ion-icon name="ios-stats"></ion-icon>
+              Upload
+            </button>
+          </ion-buttons>
+
+      </ion-row>
+
+    </ion-grid>
+
+
+
+  </ion-card-content>
+</ion-card>
+
+
+
+
+
+
+

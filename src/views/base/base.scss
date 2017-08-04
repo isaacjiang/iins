@@ -4,13 +4,11 @@
 }
 
 
-
 @media (min-width: 768px) {
 
   ion-menu {
     width: 15% !important;
     display:block !important;
-    //z-index:10;
     right: auto !important;
     left: 0 !important;
     margin-top: 56px;
@@ -26,13 +24,20 @@
     border-left-color: transparent;
     left:15%;
     width: 85%;
+    ion-grid{
+      height: 92%;
+      ion-row{
+        height: 100%;
+      }
+    }
   }
 
-  ion-menu[type=overlay] .menu-inner {
+  ion-menu[type=overlay] .menu-inner{
     -webkit-transform: translateX(0px) !important;
     transform: translateX(0px) !important;
     box-shadow:none;
     overflow: unset;
-    width:100%;
+    width:98%;
+    background-color: #F5F5F5;
   }
 }

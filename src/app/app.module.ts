@@ -10,6 +10,7 @@ import {BaseService} from '../views/base/base';
 import {CustomerPage} from '../views/customer/customer'
 import {InsurancePage} from '../views/insurance/insurance'
 import {ApplicationsPage} from '../views/applications/applications'
+import {StatisticsPage} from '../views/statistics/statistics'
 import {SettingsPage} from '../views/settings/settings'
 
 import {HeaderComponent} from '../components/header/header'
@@ -17,7 +18,7 @@ import {SearchComponent} from '../components/search/search'
 import {MenuComponent} from '../components/menu/menu'
 import {TodoComponent} from '../components/todo/todo'
 import {TableComponent} from '../components/table/table'
-
+import {FileuploadComponent} from '../components/fileupload/fileupload'
 import {FileSelectDirective} from 'ng2-file-upload';
 
 @NgModule({
@@ -26,10 +27,12 @@ import {FileSelectDirective} from 'ng2-file-upload';
         CustomerPage,
         InsurancePage,
         ApplicationsPage,
+        StatisticsPage,
         SearchComponent,
         MenuComponent,
         TodoComponent,
         TableComponent,
+        FileuploadComponent,
         SettingsPage,
         FileSelectDirective,
         HeaderComponent
@@ -45,6 +48,7 @@ import {FileSelectDirective} from 'ng2-file-upload';
         CustomerPage,
         InsurancePage,
         ApplicationsPage,
+        StatisticsPage,
         SettingsPage
     ],
     providers: [

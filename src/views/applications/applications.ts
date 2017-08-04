@@ -17,7 +17,8 @@ import {FileUploader } from 'ng2-file-upload';
 export class ApplicationsPage {
 
   public uploader:FileUploader = new FileUploader({url: '/rest/files/upload'});
-  public authentication;
+
+  public acitveView ='default'
 
   constructor(
               public nav: NavController,
@@ -28,14 +29,25 @@ export class ApplicationsPage {
               public baseService:BaseService,
               public app: App)
   {
-    //data initialization
-
-
+   this.eventsHandles(this)
   }
+
+    eventsHandles(root) {
+        root.events.unsubscribe('menuClick')
+        root.events.subscribe('menuClick', (param) => {
+            console.log(param)
+            this.menuCtrl.close()
+            root.acitveView = param.taskKey
+            // switch (param.taskKey){
+            //     case "uploadpolicy":
+            //       root.acitveView = param.taskKey
+            // }
+
+        })
+    }
 
   ionViewWillEnter()
   {
-
 
   }
 
@@ -46,13 +58,7 @@ export class ApplicationsPage {
 
   }
 
-    eventsHandles(root) {
-        // root.events.unsubscribe('menuClick')
-        root.events.subscribe('menuClick', (param) => {
-            console.log(param)
-            this.menuCtrl.close()
-        })
-    }
+
 
 
 }

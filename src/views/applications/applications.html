@@ -6,14 +6,15 @@
     <iins-menu menu_id="application"></iins-menu>
 </ion-menu>
 
-<ion-content #mainMenu style="background-color: #F8F8F8">
+<ion-content #mainMenu >
     <ion-grid >
         <ion-row>
+            <ion-col >
+                <iins-table *ngIf="acitveView=='default'"></iins-table>
+                <iins-fileupload *ngIf="acitveView=='uploadpolicy'" components_id="uploadpolicy"></iins-fileupload>
+            </ion-col>
             <ion-col col-3>
                 <iins-todo menu_id="application"></iins-todo>
-            </ion-col>
-            <ion-col >
-                <iins-table></iins-table>
             </ion-col>
         </ion-row>
 
