@@ -18,6 +18,8 @@ import {SearchComponent} from '../components/search/search'
 import {MenuComponent} from '../components/menu/menu'
 import {TodoComponent} from '../components/todo/todo'
 import {TableComponent} from '../components/table/table'
+import {PolicyComponent} from '../components/policy/policy'
+
 import {FileuploadComponent} from '../components/fileupload/fileupload'
 import {FileSelectDirective} from 'ng2-file-upload';
 
@@ -32,6 +34,7 @@ import {FileSelectDirective} from 'ng2-file-upload';
         MenuComponent,
         TodoComponent,
         TableComponent,
+        PolicyComponent,
         FileuploadComponent,
         SettingsPage,
         FileSelectDirective,

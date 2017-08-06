@@ -8,8 +8,8 @@
       <ion-row>
           <ion-buttons col-9>
             <button ion-button  outline icon-right>
+              <label style="position: absolute"> {{ switches.file_upload_lable }}</label>
               <input type="file" ng2FileSelect [uploader]="uploader" id="file-input"/>
-               {{ uploader.queue.length>0? uploader.queue[0].file.name:"Choose a file"}}
             </button>
           </ion-buttons>
 
@@ -21,6 +21,9 @@
           </ion-buttons>
 
       </ion-row>
+        <ion-row *ngIf="switches.show_policy">
+            <iins-policy></iins-policy>
+        </ion-row>
 
     </ion-grid>
 
