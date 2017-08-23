@@ -1,24 +1,23 @@
 
 iins-fileupload {
-  height: 100%;
-
+  height:100%;
   ion-card {
-    height: 100%;
+    height: 97%;
     ion-card-content {
+      height: 100%;
 
-      ion-row {
-        align-items: baseline;
-      }
     }
 
   }
 
+  #button-row {
+    align-items: baseline;
+  }
   button {
     width: 100%;
   }
   #file-input {
     opacity: 0;
-    //position: absolute;
     top: 0;
     width: 100%;
     height: 100%;

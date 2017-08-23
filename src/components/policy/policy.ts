@@ -12,12 +12,13 @@ import 'rxjs';
   templateUrl: '../policy/policy.html'
 })
 export class PolicyComponent {
+  public information: string;
+  public policyInfo:any;
 
-  constructor(
-              public http:Http
-             )
+  constructor(public http:Http)
   {
-
+    this.information = "policy"
+    this.policyInfo = {agent:{},policy:{},coverage:{},payment:{}}
 
   }
 

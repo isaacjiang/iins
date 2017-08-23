@@ -4,20 +4,21 @@
 
 <ion-menu [content]="mainMenu">
     <iins-menu menu_id="application"></iins-menu>
+    <iins-todo menu_id="application"></iins-todo>
 </ion-menu>
 
-<ion-content #mainMenu >
-    <ion-grid >
-        <ion-row>
-            <ion-col >
+<ion-content #mainMenu>
+    <!--<ion-grid style="background-color: #0dff0d">-->
+        <!--<ion-row style="background-color: #1625ff">-->
+            <!--<ion-col >-->
                 <iins-table *ngIf="acitveView=='default'"></iins-table>
                 <iins-fileupload *ngIf="acitveView=='uploadpolicy'" components_id="uploadpolicy"></iins-fileupload>
-            </ion-col>
-            <ion-col col-3>
-                <iins-todo menu_id="application"></iins-todo>
-            </ion-col>
-        </ion-row>
+            <!--</ion-col>-->
+            <!--<ion-col col-3>-->
+                <!--<iins-to do menu_id="application"></iins-to do>-->
+            <!--</ion-col>-->
+        <!--</ion-row>-->
 
-    </ion-grid>
+    <!--</ion-grid>-->
 
 </ion-content>

@@ -24,12 +24,9 @@
     border-left-color: transparent;
     left:15%;
     width: 85%;
-    ion-grid{
-      height: 92%;
-      ion-row{
-        height: 100%;
-      }
-    }
+
+    height: auto;
+    min-height: 100%;
   }
 
   ion-menu[type=overlay] .menu-inner{

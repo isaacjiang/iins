@@ -1,7 +1,136 @@
 
+    <ion-row>
+        <ion-segment [(ngModel)]="information">
+            <ion-segment-button value="policy">
+                Policy
+            </ion-segment-button>
+            <ion-segment-button value="coverage">
+                Coverage
+            </ion-segment-button>
+            <ion-segment-button value="payment">
+                Payment
+            </ion-segment-button>
+        </ion-segment>
+    </ion-row>
 
-<ion-title>policy</ion-title>
+    <ion-row [ngSwitch]="information" style="margin-top: 10px">
+        <ion-col *ngSwitchCase="'policy'">
+            <!--<ion-list >-->
 
+                <ion-item>
+                    <ion-label fixed>Policy Holder:</ion-label>
+                    <ion-input type="text" [value]="policyInfo.policy.policyHolder"></ion-input>
+                </ion-item>
+
+
+                <ion-item>
+                    <ion-label fixed>Date of Birth:</ion-label>
+                    <ion-input type="text" [value]="policyInfo.policy.dateOfBirth"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label fixed>Address:</ion-label>
+                    <ion-input type="text" [value]="policyInfo.policy.address"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label fixed>Postcode:</ion-label>
+                    <ion-input type="text" [value]="policyInfo.policy.postcode"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label >Phone Number:</ion-label>
+                    <ion-input type="text" [value]="policyInfo.policy.phoneNumber"></ion-input>
+                </ion-item>
+            <ion-item>
+                <ion-label fixed>Email:</ion-label>
+                <ion-input type="text" [value]="policyInfo.policy.email"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label >Policy Number:</ion-label>
+                <ion-input type="text" [value]="policyInfo.policy.policyNumber"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label >Application Date:</ion-label>
+                <ion-input type="text" [value]="policyInfo.policy.applicationDate"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                    <ion-label fixed>Effective Date:</ion-label>
+                    <ion-input type="text" [value]="policyInfo.policy.effectiveDate"></ion-input>
+                </ion-item>
+
+
+                <ion-item>
+                    <ion-label >Expiry Date:</ion-label>
+                    <ion-input type="text" [value]="policyInfo.policy.expiryDate"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label >Number of Days:</ion-label>
+                    <ion-input type="text" [value]="policyInfo.policy.numberOfDays"></ion-input>
+                </ion-item>
+
+
+
+            <!--</ion-list>-->
+        </ion-col>
+
+
+        <ion-list *ngSwitchCase="'coverage'">
+            <ion-item>
+                <ion-thumbnail item-start>
+                    <img src="assets/img/thumbnail-kitten-1.jpg">
+                </ion-thumbnail>
+                <h2>Luna</h2>
+            </ion-item>
+            <ion-item>
+                <ion-thumbnail item-start>
+                    <img src="assets/img/thumbnail-kitten-3.jpg">
+                </ion-thumbnail>
+                <h2>Milo</h2>
+            </ion-item>
+            <ion-item>
+                <ion-thumbnail item-start>
+                    <img src="assets/img/thumbnail-kitten-4.jpg">
+                </ion-thumbnail>
+                <h2>Bandit</h2>
+            </ion-item>
+            <ion-item>
+                <ion-thumbnail item-start>
+                    <img src="assets/img/thumbnail-kitten-2.jpg">
+                </ion-thumbnail>
+                <h2>Nala</h2>
+            </ion-item>
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'payment'">
+            <ion-item>
+                <ion-thumbnail item-start>
+                    <img src="assets/img/thumbnail-duckling-1.jpg">
+                </ion-thumbnail>
+                <h2>Daffy</h2>
+            </ion-item>
+            <ion-item>
+                <ion-thumbnail item-start>
+                    <img src="assets/img/thumbnail-duckling-2.jpg">
+                </ion-thumbnail>
+                <h2>Huey</h2>
+            </ion-item>
+            <ion-item>
+                <ion-thumbnail item-start>
+                    <img src="assets/img/thumbnail-duckling-3.jpg">
+                </ion-thumbnail>
+                <h2>Dewey</h2>
+            </ion-item>
+            <ion-item>
+                <ion-thumbnail item-start>
+                    <img src="assets/img/thumbnail-duckling-4.jpg">
+                </ion-thumbnail>
+                <h2>Louie</h2>
+            </ion-item>
+        </ion-list>
+    </ion-row>
 
 
 
