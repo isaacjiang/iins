@@ -17,7 +17,7 @@ import {PolicyComponent} from '../../components/policy/policy'
 export class FileuploadComponent implements DoCheck{
 
     public switches={show_policy:false,file_upload_lable:'Please choose a policy file.'};
-    public policyInfo = {};
+    public policyInfo =  {agent:{},policy:{},coverage:{},payment:{}};
     public uploader:FileUploader = new FileUploader({url: '/rest/files/upload'});
     @Input() components_id:any;
     @ViewChild(PolicyComponent) policyComponent:PolicyComponent;
@@ -96,7 +96,7 @@ export class FileuploadComponent implements DoCheck{
     read_pdf(textList,root){
         if (textList[0]=="JF Agent - "){
             root.policyInfo['insurer'] = 'JF'
-            root.policyInfo['agent'] = {agent:textList[1],address:textList[2],phoneNumber:textList[3]}
+            root.policyInfo['agent'] = {agent:textList[1],address:textList[2],postcode:textList[2],phoneNumber:textList[3]}
             root.policyInfo['policy']={
                 policyHolder:textList[7],
                 dateOfBirth: textList[9],
@@ -109,6 +109,70 @@ export class FileuploadComponent implements DoCheck{
                 effectiveDate:textList[23],
                 expiryDate:textList[25],
                 numberOfDays:textList[27]
+            }
+            root.policyInfo['coverage']={
+                planType: textList[33],
+                planAndBenefits:[
+                    {insurancePlan:textList[31],
+                        sumInsured:textList[35],
+                        premium: textList[44],
+                        deductible:textList[37]
+                    }
+                ],
+                totalPremium:textList[42],
+                taxes:0,
+                total:textList[42],
+                beneficiary:textList[39],
+                relationship:null
+            }
+            root.policyInfo['payment']={
+                paymentAmount:textList[42],
+                paymentDate:textList[46],
+                paymentMethod:textList[48]
+            }
+        }
+        else if (textList[textList.length-1].indexOf('Allianz')>=0){
+            root.policyInfo['insurer'] = 'Allianz'
+            root.policyInfo['agent'] = {agent:textList[11],code:textList[14],address:textList[15]+textList[16],postcode:textList[17],phoneNumber:textList[18]}
+            root.policyInfo['policy']={
+                policyHolder:textList[24],
+                dateOfBirth: textList[25],
+                address:textList[6]+textList[7],
+                postcode:textList[8],
+                phoneNumber:textList[9].split(':  ')[1],
+                email:textList[10].split(':  ')[1],
+                policyNumber: textList[19].split(':  ')[1],
+                applicationDate: textList[32],
+                departureDate:textList[34],
+                effectiveDate:textList[36],
+                expiryDate:textList[38],
+                numberOfDays:textList[40],
+                tripDuration:textList[42]
+            }
+            root.policyInfo['coverage']={
+                planType: textList[46],
+                planAndBenefits:[
+                    {insurancePlan:textList[50],
+                    sumInsured:textList[51],
+                    premium:textList[52],
+                    deductible:textList[53].split(':  ')[1]
+                    },
+                    {insurancePlan:textList[54],
+                        sumInsured:textList[55],
+                        premium:textList[56],
+                        deductible:null,
+                    }
+                    ],
+                totalPremium:textList[60],
+                taxes:textList[62],
+                total:textList[64],
+                beneficiary:textList[26].split(':  ')[1],
+                relationship:textList[28].split(':  ')[1]
+            }
+            root.policyInfo['payment']={
+                paymentAmount:textList[71],
+                paymentDate:textList[81],
+                paymentMethod:textList[67]
             }
         }
         console.log('policyInfo',root.policyInfo)

@@ -76,60 +76,74 @@
             <!--</ion-list>-->
         </ion-col>
 
+        <ion-col *ngSwitchCase="'coverage'">
+            <!--<ion-list >-->
 
-        <ion-list *ngSwitchCase="'coverage'">
             <ion-item>
-                <ion-thumbnail item-start>
-                    <img src="assets/img/thumbnail-kitten-1.jpg">
-                </ion-thumbnail>
-                <h2>Luna</h2>
+                <ion-label >Insurance Type:</ion-label>
+                <ion-input type="text" [value]="policyInfo.coverage.planType"></ion-input>
             </ion-item>
-            <ion-item>
-                <ion-thumbnail item-start>
-                    <img src="assets/img/thumbnail-kitten-3.jpg">
-                </ion-thumbnail>
-                <h2>Milo</h2>
-            </ion-item>
-            <ion-item>
-                <ion-thumbnail item-start>
-                    <img src="assets/img/thumbnail-kitten-4.jpg">
-                </ion-thumbnail>
-                <h2>Bandit</h2>
-            </ion-item>
-            <ion-item>
-                <ion-thumbnail item-start>
-                    <img src="assets/img/thumbnail-kitten-2.jpg">
-                </ion-thumbnail>
-                <h2>Nala</h2>
-            </ion-item>
-        </ion-list>
+            <ion-item-divider></ion-item-divider>
+            <ion-row *ngFor="let pb of policyInfo.coverage.planAndBenefits">
+                <ion-item>
+                    <ion-label >Insurance Plan:</ion-label>
+                    <ion-input type="text" [value]="pb.insurancePlan"></ion-input>
+                </ion-item>
 
-        <ion-list *ngSwitchCase="'payment'">
+                <ion-item>
+                    <ion-label fixed>Sum Insured:</ion-label>
+                    <ion-input type="text" [value]="pb.sumInsured"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label fixed>Premium:</ion-label>
+                    <ion-input type="text" [value]="pb.premium"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label fixed>Deductible:</ion-label>
+                    <ion-input type="text" [value]="pb.deductible"></ion-input>
+                </ion-item>
+                <ion-item-divider></ion-item-divider>
+            </ion-row>
+
             <ion-item>
-                <ion-thumbnail item-start>
-                    <img src="assets/img/thumbnail-duckling-1.jpg">
-                </ion-thumbnail>
-                <h2>Daffy</h2>
+                <ion-label >Total Premium:</ion-label>
+                <ion-input type="text" [value]="policyInfo.coverage.totalPremium"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label fixed>Beneficiary:</ion-label>
+                <ion-input type="text" [value]="policyInfo.coverage.beneficiary"></ion-input>
             </ion-item>
             <ion-item>
-                <ion-thumbnail item-start>
-                    <img src="assets/img/thumbnail-duckling-2.jpg">
-                </ion-thumbnail>
-                <h2>Huey</h2>
+                <ion-label fixed>Relationship:</ion-label>
+                <ion-input type="text" [value]="policyInfo.coverage.relationship"></ion-input>
+            </ion-item>
+
+            <!--</ion-list>-->
+        </ion-col>
+        <ion-col *ngSwitchCase="'payment'">
+            <!--<ion-list >-->
+
+            <ion-item>
+                <ion-label >Payment Amount:</ion-label>
+                <ion-input type="text" [value]="policyInfo.payment.paymentAmount"></ion-input>
+            </ion-item>
+
+
+            <ion-item>
+                <ion-label>Payment Date:</ion-label>
+                <ion-input type="text" [value]="policyInfo.payment.paymentDate"></ion-input>
             </ion-item>
             <ion-item>
-                <ion-thumbnail item-start>
-                    <img src="assets/img/thumbnail-duckling-3.jpg">
-                </ion-thumbnail>
-                <h2>Dewey</h2>
+                <ion-label >Payment Method:</ion-label>
+                <ion-input type="text" [value]="policyInfo.payment.paymentMethod"></ion-input>
             </ion-item>
-            <ion-item>
-                <ion-thumbnail item-start>
-                    <img src="assets/img/thumbnail-duckling-4.jpg">
-                </ion-thumbnail>
-                <h2>Louie</h2>
-            </ion-item>
-        </ion-list>
+
+
+
+            <!--</ion-list>-->
+        </ion-col>
+
     </ion-row>
 
 

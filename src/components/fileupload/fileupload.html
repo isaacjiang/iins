@@ -22,14 +22,31 @@
             <ion-row>
                 <ion-col col-6>
                     <iins-policy></iins-policy>
+                    <ion-item-divider></ion-item-divider>
+                    <ion-item>
+                        <ion-label >{{ policyInfo.agent.agent }} {{policyInfo.agent.code}}</ion-label>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label >{{ policyInfo.agent.address }}</ion-label>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label >{{ policyInfo.agent.phoneNumber }}</ion-label>
+                    </ion-item>
                 </ion-col>
                 <canvas id='file-canvas'></canvas>
             </ion-row>
 
+
+
+
         </ion-grid>
 
-
     </ion-card-content>
+
+
+
+
+
 </ion-card>
 
 
