@@ -16,9 +16,8 @@ import {FileUploader } from 'ng2-file-upload';
 })
 export class ApplicationsPage {
 
-  public uploader:FileUploader = new FileUploader({url: '/rest/files/upload'});
-
-  public acitveView ='default'
+  // public policyList= [];
+  public acitveView ='default';
 
   constructor(
               public nav: NavController,
@@ -48,6 +47,9 @@ export class ApplicationsPage {
 
   ionViewWillEnter()
   {
+      if(this.acitveView =='default'){
+          this.get_policy_list()
+      }
 
   }
 
@@ -59,6 +61,15 @@ export class ApplicationsPage {
   }
 
 
+
+  get_policy_list(){
+      this.http.get('/rest/policy/getlist').map(response => response.json())
+          .subscribe((resp) => {
+              console.log('list data:',resp)
+              // this.policyList = resp
+              this.events.publish('policyList',resp)
+          })
+  }
 
 
 }

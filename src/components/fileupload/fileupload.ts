@@ -81,6 +81,7 @@ export class FileuploadComponent implements DoCheck{
             };
             let renderTask = page.render(renderContext);
             renderTask.then(function () {
+                root.save_policy(root.policyInfo)
                 console.log('Page rendered');
             });
         });
@@ -107,7 +108,7 @@ export class FileuploadComponent implements DoCheck{
                 policyNumber: textList[19],
                 applicationDate: textList[21],
                 effectiveDate:textList[23],
-                expiryDate:textList[25],
+                expireDate:textList[25],
                 numberOfDays:textList[27]
             }
             root.policyInfo['coverage']={
@@ -145,7 +146,7 @@ export class FileuploadComponent implements DoCheck{
                 applicationDate: textList[32],
                 departureDate:textList[34],
                 effectiveDate:textList[36],
-                expiryDate:textList[38],
+                expireDate:textList[38],
                 numberOfDays:textList[40],
                 tripDuration:textList[42]
             }
@@ -179,6 +180,12 @@ export class FileuploadComponent implements DoCheck{
         root.policyComponent.policyInfo = root.policyInfo
     }
 
+    save_policy(policyInfo){
+        this.http.post('/rest/policy/save',policyInfo).map(response => response.json())
+            .subscribe((resp) => {
+            console.log('upload data:',resp)
+            })
+    }
 
 
 }

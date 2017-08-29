@@ -16,54 +16,73 @@ import {BaseService} from '../../views/base/base'
 export class TableComponent {
 
     public formData = [];
-    public originalData =[];
+    // public originalData =[];
     public formTitle:any;
     @Input() form_id:any;
 
     constructor(public http: Http,
                 public baseService:BaseService,
                 public events: Events) {
-
-       setTimeout(()=>{
-           console.log('form_id',this.form_id)
-            this.initialiaze()
-            this.fillingData(this.originalData)
-           console.log(this.formData)
-       },10)
+       this.eventsHandles(this)
+       // setTimeout(()=>{
+       //     console.log('form_id',this.form_id)
+       //      this.initialiaze()
+       //      this.fillingData(this.originalData)
+       //     console.log(this.formData)
+       // },10)
     }
 
-    initialiaze()
-    {
-        this.originalData =[
-            {id:10000021,customerName:'Michael Lin',policyNo:"3502301201303",expireDate:'2017-06-09',notified:"Yes"},
-            {id:10000022,customerName:'DDDDD Ln',policyNo:"3502301201303",expireDate:'2017-06-09',notified:"Yes"},
-            {id:10000023,customerName:'QUR Lin',policyNo:"3502301201303",expireDate:'2017-06-09',notified:"No"},
-            {id:10000041,customerName:'HA Lin',policyNo:"3502301201303",expireDate:'2017-06-09',notified:"Yes"},
-            {id:10000066,customerName:'MIN Lin',policyNo:"3502301201303",expireDate:'2017-06-09',notified:"Yes"},
-            {id:10000025,customerName:'Micha2l Lin',policyNo:"3502301201303",expireDate:'2017-06-10',notified:"Yes"},
-            {id:10000028,customerName:'Michae4 Lin',policyNo:"3502301201304",expireDate:'2017-06-19',notified:"No"},
-            {id:10000029,customerName:'Michae6 Lin',policyNo:"3502301201306",expireDate:'2017-06-29',notified:"Yes"}
-            ]
+    eventsHandles(root) {
+        root.events.unsubscribe('policyList')
+        root.events.subscribe('policyList', (originalData) => {
+            console.log(originalData)
+           root.fillingData(originalData)
+
+        })
     }
+
+    // initialiaze()
+    // {
+    //     this.originalData =[
+    //         {id:10000021,customerName:'Michael Lin',policyNo:"3502301201303",expireDate:'2017-06-09',notified:"Yes"},
+    //         {id:10000022,customerName:'DDDDD Ln',policyNo:"3502301201303",expireDate:'2017-06-09',notified:"Yes"},
+    //         {id:10000023,customerName:'QUR Lin',policyNo:"3502301201303",expireDate:'2017-06-09',notified:"No"},
+    //         {id:10000041,customerName:'HA Lin',policyNo:"3502301201303",expireDate:'2017-06-09',notified:"Yes"},
+    //         {id:10000066,customerName:'MIN Lin',policyNo:"3502301201303",expireDate:'2017-06-09',notified:"Yes"},
+    //         {id:10000025,customerName:'Micha2l Lin',policyNo:"3502301201303",expireDate:'2017-06-10',notified:"Yes"},
+    //         {id:10000028,customerName:'Michae4 Lin',policyNo:"3502301201304",expireDate:'2017-06-19',notified:"No"},
+    //         {id:10000029,customerName:'Michae6 Lin',policyNo:"3502301201306",expireDate:'2017-06-29',notified:"Yes"}
+    //         ]
+    // }
 
     fillingData(originalData) {
         this.formData = [];
+        // let titleList = [];
 
-        let titleList = [];
 
         if (originalData && Object.keys(originalData).length > 0) {
+            console.log('table',originalData)
+            if(this.form_id=='policyList'){
+                this.formTitle = "Policy List"
+                // titleList = ['insurer','policyHolder','policyNumber','effectiveDate','expireDate','numberOfDays']
+                this.formData[0] = ['Insurer', 'Policy Holder', 'Policy No','Effective Date','Expire Date','Number of Days'];
+                for(let line of originalData){
+                    console.log(line)
+                    let valueList = []
+                    valueList[0]=line['insurer']
+                    valueList[1]=line['policy']['policyHolder']
+                    valueList[2]=line['policy']['policyNumber']
+                    valueList[3]=line['policy']['effectiveDate']
+                    valueList[4]=line['policy']['expireDate']
+                    valueList[5]=line['policy']['numberOfDays']
+                    this.formData.push(valueList)
 
-            titleList = ['id','customerName','policyNo','expireDate','notified']
-            this.formData[0] = ['ID', 'Name', 'Policy No','Expire Date','Notification'];
+                }
+            }
 
-           for(let line of this.originalData){
-               let valueList = []
-               for (let key of titleList){
-                   valueList.push(line[key])
-               }
-               this.formData.push(valueList)
 
-           }
+
+
 
         }
     }
@@ -75,18 +94,7 @@ export class TableComponent {
 
     }
 
-    getWorkflow(jobName) {
-        let root = this
-        let searchParams: URLSearchParams = new URLSearchParams();
-        searchParams.set('jobName', jobName);
-        searchParams.set('username', this.baseService.authentication['username']);
 
-        root.http.get('/rest/workflow/getworkflowtemp', {search: searchParams}).map(response => response.json())
-            .subscribe((workflow) => {
-
-                // console.log('workflow', workflow)
-            })
-    }
 
 
 

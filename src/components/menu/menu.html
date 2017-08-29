@@ -5,7 +5,8 @@
 
   <ion-list >
     <button  ion-item *ngFor="let menuItem of mainMenuWorkflow" (click)="menuClick(menuItem)">
-     {{ menuItem.taskName }}
+      <ion-icon name="star" *ngIf="menuItem.visible"></ion-icon>
+    <span >{{ menuItem.taskName }}</span>
     </button>
 
   </ion-list>
