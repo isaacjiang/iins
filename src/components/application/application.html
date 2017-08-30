@@ -1,0 +1,347 @@
+<ion-card>
+  <ion-card-header>
+    <ion-segment [(ngModel)]="application.type" style="width: 50%">
+
+      <ion-segment-button value="travel" >
+        <ion-icon name="plane"></ion-icon>
+        <span>Travel Insurance</span>
+      </ion-segment-button>
+      <ion-segment-button value="student">
+        <ion-icon name="school"></ion-icon>
+        <span>International Student Insurance</span>
+      </ion-segment-button>
+
+    </ion-segment>
+  </ion-card-header>
+  <ion-card-content [ngSwitch]="application.type">
+
+    <ion-grid *ngSwitchCase="'travel'">
+
+      <ion-row style="margin-top: 10px" nowrap>
+          <ion-item>
+            <ion-label fixed>First Name:</ion-label>
+            <ion-input type="text" [value]="application.firstName"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label fixed>Last Name:</ion-label>
+            <ion-input type="text" [value]="application.lastName"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label fixed>Gender:</ion-label>
+              <ion-select [(ngModel)]="application.gender" interface="popover">
+                  <ion-option value="M">Male</ion-option>
+                  <ion-option value="F">Female</ion-option>
+                  <ion-option value="U">Unknow</ion-option>
+              </ion-select>
+
+          </ion-item>
+      </ion-row>
+
+        <ion-row  nowrap>
+            <ion-item>
+                <ion-label fixed>Country of Origin:</ion-label>
+                <ion-input type="text" [value]="application.countryOfOrigin"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label fixed>Date of Birth:</ion-label>
+                <ion-input type="text" [value]="application.dateOfBirth"></ion-input>
+                <ion-datetime displayFormat="MMM DD,YYYY" pickerFormat="MMM DD,YYYY" [(ngModel)]="application.dateOfBirth"></ion-datetime>
+            </ion-item>
+        </ion-row>
+        <ion-item-divider></ion-item-divider>
+        <ion-row  nowrap>
+            <ion-item>
+                <ion-label fixed>Address in Canada::</ion-label>
+                <ion-input type="text" [value]="application.address"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label fixed>City:</ion-label>
+                <ion-input type="text" [value]="application.city"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label fixed>Province:</ion-label>
+                <ion-input type="text" [value]="application.province"></ion-input>
+            </ion-item>
+        </ion-row>
+        <ion-row nowrap>
+            <ion-item>
+                <ion-label fixed>Postcode:</ion-label>
+                <ion-input type="text" [value]="application.postcode"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label fixed>Contact Number:</ion-label>
+                <ion-input type="text" [value]="application.phoneNumber"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label fixed>Email:</ion-label>
+                <ion-input type="text" [value]="application.email"></ion-input>
+            </ion-item>
+        </ion-row>
+        <ion-item-divider></ion-item-divider>
+        <ion-row nowrap>
+            <ion-item>
+                <ion-label fixed>Beneficiary:</ion-label>
+                <ion-input type="text" [value]="application.beneficiary"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label fixed>Relationship:</ion-label>
+                <ion-input type="text" [value]="application.relationship"></ion-input>
+            </ion-item>
+
+        </ion-row>
+        <ion-item-divider></ion-item-divider>
+        <ion-row nowrap>
+            <ion-item>
+                <ion-label fixed>Arrival Date:</ion-label>
+                <ion-input type="text" [value]="application.arrivalDate"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label fixed>Effective Date:</ion-label>
+                <ion-input type="text" [value]="application.effectiveDate"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label fixed>Expiry Date:</ion-label>
+                <ion-input type="text" [value]="application.expiryDate"></ion-input>
+            </ion-item>
+        </ion-row>
+        <ion-row nowrap>
+            <ion-item>
+                <ion-label fixed>Coverage:</ion-label>
+                <ion-input type="text" [value]="application.coverage"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label fixed>Total Amount:</ion-label>
+                <ion-input type="text" [value]="application.totalAmount"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label fixed>Destination:</ion-label>
+                <ion-input type="text" [value]="application.destination"></ion-input>
+            </ion-item>
+        </ion-row>
+        <ion-item-divider></ion-item-divider>
+        <ion-row nowrap>
+            <ion-item>
+                <ion-label fixed>Payment Method:</ion-label>
+                <ion-input type="text" [value]="application.paymentMethod"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label fixed>Card Number:</ion-label>
+                <ion-input type="text" [value]="application.cardNumber"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label fixed>Name on Card:</ion-label>
+                <ion-input type="text" [value]="application.nameOnCard"></ion-input>
+            </ion-item>
+        </ion-row>
+
+        <ion-row nowrap>
+            <ion-item>
+                <ion-label fixed>Expiry Date:</ion-label>
+                <ion-input type="text" [value]="application.expiryDate"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label fixed>CV Code:</ion-label>
+                <ion-input type="text" [value]="application.cvCode"></ion-input>
+            </ion-item>
+
+        </ion-row>
+        <ion-row nowrap>
+
+            <ion-item>
+                <ion-label>e-Transfer to: </ion-label>
+                <ion-label >sue@noblewealthfinancial.com</ion-label>
+            </ion-item>
+        </ion-row>
+    </ion-grid>
+    <ion-grid *ngSwitchCase="'student'">
+
+      <ion-row style="margin-top: 10px">
+        <ion-col >
+          <!--<ion-list >-->
+
+          <ion-item>
+            <ion-label fixed>Policy Holder:</ion-label>
+            <ion-input type="text" [value]="application.policyHolder"></ion-input>
+          </ion-item>
+
+
+          <ion-item>
+            <ion-label fixed>Date of Birth:</ion-label>
+            <ion-input type="text" [value]="application.dateOfBirth"></ion-input>
+          </ion-item>
+
+          <!--<ion-item>-->
+          <!--<ion-label fixed>Address:</ion-label>-->
+          <!--<ion-input type="text" [value]="policyInfo.policy.address"></ion-input>-->
+          <!--</ion-item>-->
+          <!--<ion-item>-->
+          <!--<ion-label fixed>Postcode:</ion-label>-->
+          <!--<ion-input type="text" [value]="policyInfo.policy.postcode"></ion-input>-->
+          <!--</ion-item>-->
+
+          <!--<ion-item>-->
+          <!--<ion-label >Phone Number:</ion-label>-->
+          <!--<ion-input type="text" [value]="policyInfo.policy.phoneNumber"></ion-input>-->
+          <!--</ion-item>-->
+          <!--<ion-item>-->
+          <!--<ion-label fixed>Email:</ion-label>-->
+          <!--<ion-input type="text" [value]="policyInfo.policy.email"></ion-input>-->
+          <!--</ion-item>-->
+
+          <!--<ion-item>-->
+          <!--<ion-label >Policy Number:</ion-label>-->
+          <!--<ion-input type="text" [value]="policyInfo.policy.policyNumber"></ion-input>-->
+          <!--</ion-item>-->
+          <!--<ion-item>-->
+          <!--<ion-label >Application Date:</ion-label>-->
+          <!--<ion-input type="text" [value]="policyInfo.policy.applicationDate"></ion-input>-->
+          <!--</ion-item>-->
+
+          <!--<ion-item>-->
+          <!--<ion-label fixed>Effective Date:</ion-label>-->
+          <!--<ion-input type="text" [value]="policyInfo.policy.effectiveDate"></ion-input>-->
+          <!--</ion-item>-->
+
+
+          <!--<ion-item>-->
+          <!--<ion-label >Expiry Date:</ion-label>-->
+          <!--<ion-input type="text" [value]="policyInfo.policy.expiryDate"></ion-input>-->
+          <!--</ion-item>-->
+
+          <!--<ion-item>-->
+          <!--<ion-label >Number of Days:</ion-label>-->
+          <!--<ion-input type="text" [value]="policyInfo.policy.numberOfDays"></ion-input>-->
+          <!--</ion-item>-->
+
+
+
+          <!--</ion-list>-->
+        </ion-col>
+
+        <ion-col >
+          <!--<ion-list >-->
+
+          <!--<ion-item>-->
+          <!--<ion-label >Insurance Type:</ion-label>-->
+          <!--<ion-input type="text" [value]="policyInfo.coverage.planType"></ion-input>-->
+          <!--</ion-item>-->
+          <!--<ion-item-divider></ion-item-divider>-->
+          <!--<ion-row *ngFor="let pb of policyInfo.coverage.planAndBenefits">-->
+          <!--<ion-item>-->
+          <!--<ion-label >Insurance Plan:</ion-label>-->
+          <!--<ion-input type="text" [value]="pb.insurancePlan"></ion-input>-->
+          <!--</ion-item>-->
+
+          <!--<ion-item>-->
+          <!--<ion-label fixed>Sum Insured:</ion-label>-->
+          <!--<ion-input type="text" [value]="pb.sumInsured"></ion-input>-->
+          <!--</ion-item>-->
+          <!--<ion-item>-->
+          <!--<ion-label fixed>Premium:</ion-label>-->
+          <!--<ion-input type="text" [value]="pb.premium"></ion-input>-->
+          <!--</ion-item>-->
+          <!--<ion-item>-->
+          <!--<ion-label fixed>Deductible:</ion-label>-->
+          <!--<ion-input type="text" [value]="pb.deductible"></ion-input>-->
+          <!--</ion-item>-->
+          <!--<ion-item-divider></ion-item-divider>-->
+          <!--</ion-row>-->
+
+          <!--<ion-item>-->
+          <!--<ion-label >Total Premium:</ion-label>-->
+          <!--<ion-input type="text" [value]="policyInfo.coverage.totalPremium"></ion-input>-->
+          <!--</ion-item>-->
+
+          <!--<ion-item>-->
+          <!--<ion-label fixed>Beneficiary:</ion-label>-->
+          <!--<ion-input type="text" [value]="policyInfo.coverage.beneficiary"></ion-input>-->
+          <!--</ion-item>-->
+          <!--<ion-item>-->
+          <!--<ion-label fixed>Relationship:</ion-label>-->
+          <!--<ion-input type="text" [value]="policyInfo.coverage.relationship"></ion-input>-->
+          <!--</ion-item>-->
+
+          <!--</ion-list>-->
+        </ion-col>
+
+
+      </ion-row>
+      <ion-row style="margin-top: 10px">
+        <ion-col >
+          <!--<ion-list >-->
+
+          <!--<ion-item>-->
+          <!--<ion-label fixed>Policy Holder:</ion-label>-->
+          <!--<ion-input type="text" [value]="policyInfo.policy.policyHolder"></ion-input>-->
+          <!--</ion-item>-->
+
+
+          <!--<ion-item>-->
+          <!--<ion-label fixed>Date of Birth:</ion-label>-->
+          <!--<ion-input type="text" [value]="policyInfo.policy.dateOfBirth"></ion-input>-->
+          <!--</ion-item>-->
+
+          <!--<ion-item>-->
+          <!--<ion-label fixed>Address:</ion-label>-->
+          <!--<ion-input type="text" [value]="policyInfo.policy.address"></ion-input>-->
+          <!--</ion-item>-->
+          <!--<ion-item>-->
+          <!--<ion-label fixed>Postcode:</ion-label>-->
+          <!--<ion-input type="text" [value]="policyInfo.policy.postcode"></ion-input>-->
+          <!--</ion-item>-->
+
+          <!--<ion-item>-->
+          <!--<ion-label >Phone Number:</ion-label>-->
+          <!--<ion-input type="text" [value]="policyInfo.policy.phoneNumber"></ion-input>-->
+          <!--</ion-item>-->
+          <!--<ion-item>-->
+          <!--<ion-label fixed>Email:</ion-label>-->
+          <!--<ion-input type="text" [value]="policyInfo.policy.email"></ion-input>-->
+          <!--</ion-item>-->
+
+          <!--<ion-item>-->
+          <!--<ion-label >Policy Number:</ion-label>-->
+          <!--<ion-input type="text" [value]="policyInfo.policy.policyNumber"></ion-input>-->
+          <!--</ion-item>-->
+          <!--<ion-item>-->
+          <!--<ion-label >Application Date:</ion-label>-->
+          <!--<ion-input type="text" [value]="policyInfo.policy.applicationDate"></ion-input>-->
+          <!--</ion-item>-->
+
+          <!--<ion-item>-->
+          <!--<ion-label fixed>Effective Date:</ion-label>-->
+          <!--<ion-input type="text" [value]="policyInfo.policy.effectiveDate"></ion-input>-->
+          <!--</ion-item>-->
+
+
+          <!--<ion-item>-->
+          <!--<ion-label >Expiry Date:</ion-label>-->
+          <!--<ion-input type="text" [value]="policyInfo.policy.expiryDate"></ion-input>-->
+          <!--</ion-item>-->
+
+          <!--<ion-item>-->
+          <!--<ion-label >Number of Days:</ion-label>-->
+          <!--<ion-input type="text" [value]="policyInfo.policy.numberOfDays"></ion-input>-->
+          <!--</ion-item>-->
+
+
+
+          <!--</ion-list>-->
+        </ion-col>
+
+
+
+
+      </ion-row>
+
+    </ion-grid>
+  </ion-card-content>
+
+</ion-card>
+
+
+
+
+
+
+

@@ -19,6 +19,7 @@ import {MenuComponent} from '../components/menu/menu'
 import {TodoComponent} from '../components/todo/todo'
 import {TableComponent} from '../components/table/table'
 import {PolicyComponent} from '../components/policy/policy'
+import {ApplicationComponent} from "../components/application/application";
 
 import {FileuploadComponent} from '../components/fileupload/fileupload'
 import {FileSelectDirective} from 'ng2-file-upload';
@@ -38,7 +39,8 @@ import {FileSelectDirective} from 'ng2-file-upload';
         FileuploadComponent,
         SettingsPage,
         FileSelectDirective,
-        HeaderComponent
+        HeaderComponent,
+        ApplicationComponent
     ],
     imports: [
         BrowserModule,
