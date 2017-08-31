@@ -4,6 +4,17 @@ iins-application {
 
   ion-card {
     height: 96%;
+    ion-card-content{
+      height: 86%;
+    }
+
+    #bottom-buttons {
+      margin-bottom: 20px;
+      margin-right: 60px;
+      //button{
+      //  right: 30px;
+      //}
+    }
   }
 
 

@@ -41,9 +41,21 @@ export class ApplicationComponent {
     }
 
 
+    saveData(){
+        this.http.post('/rest/application/save',this.application).map(response => response.json())
+            .subscribe((resp) => {
+                console.log('upload application:',resp)
+            })
+    }
 
+    resetData(){
+        console.log('reset')
+        this.application={type:this.application.type}
+        console.log('reset',this.application)
+    }
 
+    submitData(){
 
-
+}
 
 }
