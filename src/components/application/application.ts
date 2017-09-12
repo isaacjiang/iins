@@ -6,10 +6,10 @@ import {Http, URLSearchParams} from '@angular/http'
 import {Events} from 'ionic-angular';
 import 'rxjs';
 
+
 @Component({
     selector: 'iins-application',
-    templateUrl: '../application/application.html'
-
+    templateUrl: '../application/application.html',
 })
 export class ApplicationComponent {
 
@@ -29,6 +29,8 @@ export class ApplicationComponent {
        //      this.fillingData(this.originalData)
        //     console.log(this.formData)
        // },10)
+
+
     }
 
     eventsHandles(root) {
@@ -40,7 +42,6 @@ export class ApplicationComponent {
         })
     }
 
-
     saveData(){
         this.http.post('/rest/application/save',this.application).map(response => response.json())
             .subscribe((resp) => {
@@ -48,10 +49,11 @@ export class ApplicationComponent {
             })
     }
 
-    resetData(){
-        console.log('reset')
-        this.application={type:this.application.type}
-        console.log('reset',this.application)
+    submitData(){
+      this.http.post('/rest/application/save',this.application).map(response => response.json())
+        .subscribe((resp) => {
+          console.log('upload application:',resp)
+        })
     }
 
     submitData(){

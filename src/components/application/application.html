@@ -20,15 +20,17 @@
       <ion-row style="margin-top: 10px" nowrap>
           <ion-item col-3>
             <ion-label fixed>First Name:</ion-label>
-            <ion-input type="text" [value]="application.firstName"></ion-input>
+            <ion-input type="text" [(ngModel)]="application.firstName"></ion-input>
           </ion-item>
           <ion-item col-3>
             <ion-label fixed>Last Name:</ion-label>
-            <ion-input type="text" [value]="application.lastName"></ion-input>
+            <ion-input type="text" [(ngModel)]="application.lastName"></ion-input>
           </ion-item>
           <ion-item>
-              <ion-label>Date of Birth:</ion-label>
+              <ion-label > Date of Birth:</ion-label>
               <!--<ion-input type="text" [value]="application.dateOfBirth"></ion-input>-->
+            <!--<button ion-button (click)="showCalendar()">Show Calendar</button>-->
+
               <ion-datetime displayFormat="MMM DD,YYYY" pickerFormat="MMM DD,YYYY" [(ngModel)]="application.dateOfBirth"></ion-datetime>
           </ion-item>
           <ion-item col-2>
@@ -46,12 +48,12 @@
         <ion-row  nowrap>
             <ion-item>
                 <ion-label>Country of Origin:</ion-label>
-                <ion-input type="text" [value]="application.countryOfOrigin"></ion-input>
+                <ion-input type="text" [(ngModel)]="application.countryOfOrigin"></ion-input>
             </ion-item>
 
             <ion-item >
                 <ion-label>Address in Canada:</ion-label>
-                <ion-input type="text" [value]="application.address"></ion-input>
+                <ion-input type="text" [(ngModel)]="application.address"></ion-input>
             </ion-item>
             <ion-item></ion-item>
         </ion-row>
@@ -60,26 +62,26 @@
 
             <ion-item>
                 <ion-label fixed>City:</ion-label>
-                <ion-input type="text" [value]="application.city"></ion-input>
+                <ion-input type="text" [(ngModel)]="application.city"></ion-input>
             </ion-item>
             <ion-item>
                 <ion-label fixed>Province:</ion-label>
-                <ion-input type="text" [value]="application.province"></ion-input>
+                <ion-input type="text" [(ngModel)]="application.province"></ion-input>
             </ion-item>
             <ion-item>
                 <ion-label fixed>Postcode:</ion-label>
-                <ion-input type="text" [value]="application.postcode"></ion-input>
+                <ion-input type="text" [(ngModel)]="application.postcode"></ion-input>
             </ion-item>
         </ion-row>
         <ion-row nowrap>
 
             <ion-item>
                 <ion-label>Contact Number:</ion-label>
-                <ion-input type="text" [value]="application.phoneNumber"></ion-input>
+                <ion-input type="text" [(ngModel)]="application.phoneNumber"></ion-input>
             </ion-item>
             <ion-item>
                 <ion-label fixed>Email:</ion-label>
-                <ion-input type="text" [value]="application.email"></ion-input>
+                <ion-input type="text" [(ngModel)]="application.email"></ion-input>
             </ion-item>
             <ion-item></ion-item>
         </ion-row>
@@ -87,11 +89,11 @@
         <ion-row nowrap>
             <ion-item>
                 <ion-label fixed>Beneficiary:</ion-label>
-                <ion-input type="text" [value]="application.beneficiary"></ion-input>
+                <ion-input type="text" [(ngModel)]="application.beneficiary"></ion-input>
             </ion-item>
             <ion-item>
                 <ion-label fixed>Relationship:</ion-label>
-                <ion-input type="text" [value]="application.relationship"></ion-input>
+                <ion-input type="text" [(ngModel)]="application.relationship"></ion-input>
             </ion-item>
             <ion-item>
                 <!--<ion-label fixed>Relationship:</ion-label>-->
@@ -102,55 +104,55 @@
         <ion-row nowrap>
             <ion-item>
                 <ion-label fixed>Arrival Date:</ion-label>
-                <ion-input type="text" [value]="application.arrivalDate"></ion-input>
+                <ion-input type="text" [(ngModel)]="application.arrivalDate"></ion-input>
             </ion-item>
             <ion-item>
                 <ion-label>Effective Date:</ion-label>
-                <ion-input type="text" [value]="application.effectiveDate"></ion-input>
+                <ion-input type="text" [(ngModel)]="application.effectiveDate"></ion-input>
             </ion-item>
             <ion-item>
                 <ion-label>Expiry Date:</ion-label>
-                <ion-input type="text" [value]="application.expiryDate"></ion-input>
+                <ion-input type="text" [(ngModel)]="application.expiryDate"></ion-input>
             </ion-item>
         </ion-row>
         <ion-row nowrap>
             <ion-item>
                 <ion-label fixed>Coverage:</ion-label>
-                <ion-input type="text" [value]="application.coverage"></ion-input>
+                <ion-input type="text" [(ngModel)]="application.coverage"></ion-input>
             </ion-item>
             <ion-item>
                 <ion-label fixed>Total Amount:</ion-label>
-                <ion-input type="text" [value]="application.totalAmount"></ion-input>
+                <ion-input type="text" [(ngModel)]="application.totalAmount"></ion-input>
             </ion-item>
             <ion-item>
                 <ion-label fixed>Insurance Company:</ion-label>
-                <ion-input type="text" [value]="application.insurer"></ion-input>
+                <ion-input type="text" [(ngModel)]="application.insurer"></ion-input>
             </ion-item>
         </ion-row>
         <ion-item-divider></ion-item-divider>
         <ion-row nowrap>
             <ion-item>
                 <ion-label >Payment Method:</ion-label>
-                <ion-input type="text" [value]="application.paymentMethod"></ion-input>
+                <ion-input type="text" [(ngModel)]="application.paymentMethod"></ion-input>
             </ion-item>
             <ion-item>
                 <ion-label >Card Number:</ion-label>
-                <ion-input type="text" [value]="application.cardNumber"></ion-input>
+                <ion-input type="text" [(ngModel)]="application.cardNumber"></ion-input>
             </ion-item>
             <ion-item>
                 <ion-label >Name on Card:</ion-label>
-                <ion-input type="text" [value]="application.nameOnCard"></ion-input>
+                <ion-input type="text" [(ngModel)]="application.nameOnCard"></ion-input>
             </ion-item>
         </ion-row>
 
         <ion-row nowrap>
             <ion-item>
                 <ion-label fixed>Expiry Date:</ion-label>
-                <ion-input type="text" [value]="application.expiryDate"></ion-input>
+                <ion-input type="text" [(ngModel)]="application.expiryDate"></ion-input>
             </ion-item>
             <ion-item>
                 <ion-label >CV Code:</ion-label>
-                <ion-input type="text" [value]="application.cvCode"></ion-input>
+                <ion-input type="text" [(ngModel)]="application.cvCode"></ion-input>
             </ion-item>
 <ion-item></ion-item>
         </ion-row>
@@ -164,13 +166,13 @@
 
           <ion-item>
             <ion-label fixed>Policy Holder:</ion-label>
-            <ion-input type="text" [value]="application.policyHolder"></ion-input>
+            <ion-input type="text" [(ngModel)]="application.policyHolder"></ion-input>
           </ion-item>
 
 
           <ion-item>
             <ion-label fixed>Date of Birth:</ion-label>
-            <ion-input type="text" [value]="application.dateOfBirth"></ion-input>
+            <ion-input type="text" [(ngModel)]="application.dateOfBirth"></ion-input>
           </ion-item>
 
           <!--<ion-item>-->
