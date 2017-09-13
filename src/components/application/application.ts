@@ -45,19 +45,17 @@ export class ApplicationComponent {
     saveData(){
         this.http.post('/rest/application/save',this.application).map(response => response.json())
             .subscribe((resp) => {
-                console.log('upload application:',resp)
+                console.log('save application:',resp)
             })
     }
 
     submitData(){
-      this.http.post('/rest/application/save',this.application).map(response => response.json())
+      this.http.post('/rest/application/submit',this.application).map(response => response.json())
         .subscribe((resp) => {
-          console.log('upload application:',resp)
+          console.log('submit application:',resp)
         })
     }
 
-    submitData(){
 
-}
 
 }
