@@ -14,7 +14,7 @@ import 'rxjs';
 export class ApplicationComponent {
 
     public title:any;
-    public application:any
+    public application:any;
     @Input() form_id:any;
 
     constructor(public http: Http,
@@ -42,6 +42,7 @@ export class ApplicationComponent {
         })
     }
 
+
     saveData(){
         this.http.post('/rest/application/save',this.application).map(response => response.json())
             .subscribe((resp) => {
@@ -53,6 +54,7 @@ export class ApplicationComponent {
       this.http.post('/rest/application/submit',this.application).map(response => response.json())
         .subscribe((resp) => {
           console.log('submit application:',resp)
+
         })
     }
 

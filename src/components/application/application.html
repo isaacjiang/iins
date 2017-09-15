@@ -17,7 +17,11 @@
 
     <ion-grid *ngSwitchCase="'travel'">
 
-      <ion-row style="margin-top: 10px" nowrap>
+      <ion-row style="margin-top: 10px">
+           <iins-search search_id="customers"></iins-search>
+      </ion-row>
+
+      <ion-row nowrap>
           <ion-item col-3>
             <ion-label fixed>First Name:</ion-label>
             <ion-input type="text" [(ngModel)]="application.firstName"></ion-input>
