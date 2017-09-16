@@ -3,6 +3,7 @@
  */
 import {Component,Input} from '@angular/core';
 import {Http} from '@angular/http'
+import {Events} from 'ionic-angular';
 import 'rxjs';
 
 
@@ -17,7 +18,8 @@ export class SearchComponent {
   @Input() search_id:any;
 
   constructor(
-              public http:Http
+              public http:Http,
+              public events: Events
              )
   {
 
@@ -25,16 +27,16 @@ export class SearchComponent {
   }
 
 
-  getCustomers($event){
+  getCustomers(ev){
 
     console.log(this.searchText)
     let url ='/rest/customers/search?searchText=' +this.searchText
-    this.http.get(url,this.application).map(response => response.json())
+    this.http.get(url).map(response => response.json())
       .subscribe((resp) => {
-
         if (resp.length>0){
           console.log('itemsList:',resp)
           this.itemsList = resp
+
         }
 
       })
@@ -43,6 +45,8 @@ export class SearchComponent {
 
   itemSelected(item){
     console.log('selected:',item)
+    this.events.publish('selectedCustomer',item)
+    this.searchText =""
     this.itemsList=[]
   }
 

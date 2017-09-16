@@ -22,7 +22,7 @@ export class ApplicationComponent {
                 public events: Events) {
        this.eventsHandles(this)
         this.title = 'Application'
-        this.application={type:'travel'}
+        this.application={type:'travel',customer:{},insured:[{}],policy:{}}
        // setTimeout(()=>{
        //     console.log('form_id',this.form_id)
        //      this.initialiaze()
@@ -37,9 +37,12 @@ export class ApplicationComponent {
         root.events.unsubscribe('policyList')
         root.events.subscribe('policyList', (originalData) => {
             console.log(originalData)
-
-
         })
+      root.events.subscribe('selectedCustomer', (originalData) => {
+        // console.log("customer",originalData)
+        this.application.customer= originalData
+        this.application.insured[0] = originalData
+      })
     }
 
 
@@ -58,6 +61,8 @@ export class ApplicationComponent {
         })
     }
 
-
+  addInsured(){
+    this.application.insured.push({customer_name:"",dateOfBirth:"",gender:""})
+  }
 
 }

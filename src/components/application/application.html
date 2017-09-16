@@ -17,35 +17,53 @@
 
     <ion-grid *ngSwitchCase="'travel'">
 
-      <ion-row style="margin-top: 10px">
-           <iins-search search_id="customers"></iins-search>
+      <ion-row style="margin-top: 10px" nowrap>
+        <!--<ion-item col-6>-->
+          <iins-search cole-3 search_id="customers"></iins-search>
+        <!--</ion-item>-->
+
+        <ion-item col-3>
+          <ion-label>Name :{{application.customer.customer_name}}</ion-label>
+        </ion-item>
+        <ion-item col-3>
+          <ion-label>Birthday:{{application.customer.birthday}}</ion-label>
+        </ion-item>
+        <ion-item col-3>
+          <ion-label>Gender:{{application.customer.gender}}</ion-label>
+        </ion-item>
       </ion-row>
 
-      <ion-row nowrap>
+      <ion-row nowrap *ngFor="let insured of application.insured">
           <ion-item col-3>
             <ion-label fixed>First Name:</ion-label>
-            <ion-input type="text" [(ngModel)]="application.firstName"></ion-input>
+            <ion-input type="text" [(ngModel)]="insured.customer_name"></ion-input>
           </ion-item>
           <ion-item col-3>
             <ion-label fixed>Last Name:</ion-label>
-            <ion-input type="text" [(ngModel)]="application.lastName"></ion-input>
+            <ion-input type="text" [(ngModel)]="insured.lastName"></ion-input>
           </ion-item>
-          <ion-item>
+          <ion-item col-3>
               <ion-label > Date of Birth:</ion-label>
               <!--<ion-input type="text" [value]="application.dateOfBirth"></ion-input>-->
             <!--<button ion-button (click)="showCalendar()">Show Calendar</button>-->
 
-              <ion-datetime displayFormat="MMM DD,YYYY" pickerFormat="MMM DD,YYYY" [(ngModel)]="application.dateOfBirth"></ion-datetime>
+              <ion-datetime displayFormat="MMM DD,YYYY" pickerFormat="MMM DD,YYYY" [(ngModel)]="insured.dateOfBirth"></ion-datetime>
           </ion-item>
           <ion-item col-2>
-              <ion-label fixed>Gender:</ion-label>
-              <ion-select [(ngModel)]="application.gender" interface="popover">
+              <ion-label >Gender:</ion-label>
+              <ion-select [(ngModel)]="insured.gender" interface="popover">
                   <ion-option value="M">Male</ion-option>
                   <ion-option value="F">Female</ion-option>
                   <ion-option value="U">Unknow</ion-option>
               </ion-select>
-
           </ion-item>
+<ion-item >
+  <button ion-button outline (click)="addInsured()">
+    Add
+  </button>
+</ion-item>
+
+
 
       </ion-row>
 
