@@ -3,7 +3,7 @@
  */
 import {Component,Input} from '@angular/core';
 import {Http, URLSearchParams} from '@angular/http'
-import {Events} from 'ionic-angular';
+import {Events, DateTime} from 'ionic-angular';
 import 'rxjs';
 
 
@@ -15,6 +15,8 @@ export class ApplicationComponent {
 
     public title:any;
     public application:any;
+    public provincesList:any;
+    public maxYear:any;
     @Input() form_id:any;
 
     constructor(public http: Http,
@@ -22,13 +24,11 @@ export class ApplicationComponent {
                 public events: Events) {
        this.eventsHandles(this)
         this.title = 'Application'
-        this.application={type:'travel',customer:{},insured:[{}],policy:{}}
-       // setTimeout(()=>{
-       //     console.log('form_id',this.form_id)
-       //      this.initialiaze()
-       //      this.fillingData(this.originalData)
-       //     console.log(this.formData)
-       // },10)
+        this.application={type:'travel',customer:{},insured:[{}],policy:{},payment:{}}
+       this.getProvinces()
+      this.maxYear = (new Date()).getFullYear()+5
+      console.log(this.maxYear)
+
 
 
     }
@@ -44,6 +44,17 @@ export class ApplicationComponent {
         this.application.insured[0] = originalData
       })
     }
+
+  getProvinces(){
+
+    let url ='/rest/common/provinces'
+    this.http.get(url).map(response => response.json())
+      .subscribe((resp) => {
+          console.log('itemsList:',resp)
+          this.provincesList = resp
+
+      })
+  }
 
 
     saveData(){
@@ -62,7 +73,11 @@ export class ApplicationComponent {
     }
 
   addInsured(){
-    this.application.insured.push({customer_name:"",dateOfBirth:"",gender:""})
+    this.application.insured.push({firstName:"",lastName:"",dateOfBirth:"",gender:""})
+  }
+
+  removeInsured(indexRow){
+    this.application.insured.splice(indexRow,1)
   }
 
 }

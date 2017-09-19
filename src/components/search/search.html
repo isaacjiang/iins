@@ -1,8 +1,8 @@
 
 <ion-searchbar [(ngModel)]="searchText" (ionInput)="getCustomers($event)" placeholder="Enter Customer"></ion-searchbar>
-<ion-list inset>
-  <button ion-item *ngFor="let item of itemsList" (click)="itemSelected(item)">
-    {{ item.customer_name }}
+<ion-list>
+  <button ion-item *ngFor="let item of itemsList" (click)="itemSelected(item)" class="list_item">
+    {{ item.firstName }} {{ item.lastName }}
   </button>
 </ion-list>
 
