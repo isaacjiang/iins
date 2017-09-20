@@ -27,7 +27,7 @@ export class ApplicationComponent {
         this.application={type:'travel',customer:{},insured:[{}],policy:{},payment:{}}
        this.getProvinces()
       this.maxYear = (new Date()).getFullYear()+5
-      console.log(this.maxYear)
+
 
 
 
@@ -41,7 +41,7 @@ export class ApplicationComponent {
       root.events.subscribe('selectedCustomer', (originalData) => {
         // console.log("customer",originalData)
         this.application.customer= originalData
-        this.application.insured[0] = originalData
+        this.application.insured[0] = Object.assign({}, originalData);
       })
     }
 
@@ -61,6 +61,7 @@ export class ApplicationComponent {
         this.http.post('/rest/application/save',this.application).map(response => response.json())
             .subscribe((resp) => {
                 console.log('save application:',resp)
+              this.application = resp
             })
     }
 
