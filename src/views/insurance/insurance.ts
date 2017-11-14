@@ -15,15 +15,17 @@ import {FileUploader} from 'ng2-file-upload';
 })
 export class InsurancePage {
 
-    public uploader: FileUploader = new FileUploader({url: '/rest/files/upload'});
-    public workoutProgress: any;
+    //public uploader: FileUploader = new FileUploader({url: '/rest/files/upload'});
+
     constructor(public http: Http,
                 public events: Events,
                 public menuCtrl: MenuController,
                 public baseService: BaseService,
                 public app: App)
     {
-        this.eventsHandles(this)
+      this.baseService.updateUserStatus()
+      this.eventsHandles(this)
+
     }
 
     eventsHandles(root) {
@@ -39,19 +41,12 @@ export class InsurancePage {
     }
 
     ionViewDidEnter() {
-        console.log(this.baseService.global)
-        this.updateProgress(0.3)
+
     }
 
     ionViewWillLeave() {
 
     }
-
-    updateProgress(val) {
-        // Update percentage value where the above is a decimal
-        this.workoutProgress = Math.min( (val * 5), 5);
-    }
-
     openMenu() {
         this.menuCtrl.toggle()
     }

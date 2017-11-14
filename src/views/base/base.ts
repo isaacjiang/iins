@@ -19,12 +19,13 @@ export class BaseService {
               public events:Events,
               public app: App)
   {
-    this.updateUserStatus()
+
   }
 
 
   updateUserStatus() {
     let root = this
+    console.log('base authentication ...s')
     root.http.get('/rest/admin/userstatus').map(response => response.json())
       .subscribe((authentication) => {
       //testing
@@ -32,7 +33,6 @@ export class BaseService {
               username:'Admin',permissions:['Administrator']}
 
         root.authentication = authentication;
-
         this.events.publish('authentication',authentication)
       })
   }

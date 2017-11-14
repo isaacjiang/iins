@@ -5,13 +5,14 @@ import {Component,Input} from '@angular/core';
 import {Http, URLSearchParams} from '@angular/http'
 import {Events} from 'ionic-angular';
 import 'rxjs';
-
 import {BaseService} from '../../views/base/base'
+
 
 @Component({
     selector: 'iins-menu',
     templateUrl: '../menu/menu.html',
-    providers:[BaseService]
+  providers:[BaseService]
+
 })
 export class MenuComponent {
 

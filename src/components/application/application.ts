@@ -28,9 +28,6 @@ export class ApplicationComponent {
        this.getProvinces()
       this.maxYear = (new Date()).getFullYear()+5
 
-
-
-
     }
 
     eventsHandles(root) {

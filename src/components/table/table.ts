@@ -6,12 +6,11 @@ import {Http, URLSearchParams} from '@angular/http'
 import {Events} from 'ionic-angular';
 import 'rxjs';
 
-import {BaseService} from '../../views/base/base'
 
 @Component({
     selector: 'iins-table',
-    templateUrl: '../table/table.html',
-    providers:[BaseService]
+    templateUrl: '../table/table.html'
+
 })
 export class TableComponent {
 
@@ -21,7 +20,6 @@ export class TableComponent {
     @Input() form_id:any;
 
     constructor(public http: Http,
-                public baseService:BaseService,
                 public events: Events) {
        this.eventsHandles(this)
        // setTimeout(()=>{

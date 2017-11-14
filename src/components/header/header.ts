@@ -9,12 +9,10 @@ import {ApplicationsPage} from '../../views/applications/applications'
 import {StatisticsPage} from '../../views/statistics/statistics'
 import {SettingsPage} from '../../views/settings/settings'
 
-import {BaseService} from '../../views/base/base'
 
 @Component({
     selector: 'iins-header',
-    templateUrl: 'header.html',
-    providers: [BaseService]
+    templateUrl: 'header.html'
 })
 
 
